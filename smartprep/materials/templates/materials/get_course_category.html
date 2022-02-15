@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>Course</title>
+{% endblock title %}
+
+{% block main_content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+
+.description{width:55%;
+text-align:justify}
+</style>
+
+<!-- ----------our Course-------- -->
+
+<div class="types mt-5  pt-5" style="background-color:white" >
+    <div class="wrapper pt-5">
+        <div class="links">
+<!--            -->
+<!--             <h1 class="heading1">-->
+<!--        <span>{{category.category_Name}}</span>-->
+
+<!--        </h1>-->
+            <div class="left-side">
+                <div class="topic">
+                <h1 class="heading" style="color:black">
+                    {{category.category_Name}}
+                </h1>
+                </div>
+                <div class="description" style="color:#5A5B5E">
+                    {{category.category_Description}}
+
+                </div>
+
+            </div>
+
+            <div class="right-side">
+                <img src="/{{category.category_Image}}">
+
+            </div>
+        </div>
+        <div class="view_main">
+            <div class="view_wrap list-view" style="display: block;">
+
+                {% for i in category.courses_set.all %}
+                <div class="view_item">
+                    <div class="vi_left">
+                        <img src="/{{i.course_Image}}" alt="Relevant Image">
+                    </div>
+                    <div class="vi_right">
+                        <p class="title">{{i.course_Name}}</p>
+                        <p class="content" style="overflow:hidden;
+                        display:-webkit-box;
+                        -webkit-box-orient:vertical;
+                        -webkit-line-clamp:2">
+                            {{i.course_Description}}</p>
+                        <div class="btn">Explore ></div>
+                    </div>
+                </div>
+                 {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+    <script>
+        var li_links = document.querySelectorAll(".links ul li");
+        var view_wraps = document.querySelectorAll(".view_wrap");
+        var list_view = document.querySelector(".list-view");
+        var grid_view = document.querySelector(".grid-view");
+
+        li_links.forEach(function(link){
+            link.addEventListener("click", function(){
+                li_links.forEach(function(link){
+                    link.classList.remove("active");
+                })
+
+                link.classList.add("active");
+
+                var li_view = link.getAttribute("data-view");
+
+                view_wraps.forEach(function(view){
+                    view.style.display = "none";
+                })
+
+                if(li_view == "list-view"){
+                    list_view.style.display = "block";
+                }
+                else{
+                    grid_view.style.display = "block";
+                }
+            })
+        })
+
+    </script>
+
+<!--<script type="text/javascript">-->
+<!--    document.getElementById("myButton").onclick = function () {-->
+<!--        location.href = "/materials/courses/";-->
+<!--    };-->
+<!--</script>-->
+    {% endblock main_content %}

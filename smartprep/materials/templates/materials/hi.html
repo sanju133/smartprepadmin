@@ -1,0 +1,193 @@
+<style>
+.content-detail{
+height:55px;
+overflow:hidden;
+margin-bottom:8%;
+}
+
+.content-p
+{overflow:hidden;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-line-clamp:5
+}
+
+    .courses{
+    margin:8%
+}
+.courses .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    gap:4rem;
+
+}
+
+
+
+.box-container .box{
+    overflow: hidden;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    background: white;
+
+}
+.box-container .box img{
+    height: 12rem;
+    width:100%;
+}
+.box-container .box .content{
+    padding: 0.5rem;
+}
+.box-container .box .content .bicon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.2rem;
+    border-bottom:.1rem solid rgba(0,0,0,.1) ;
+}
+.bicon a{
+    color:gray;
+    font-size:15px;
+}
+.bicon a i{
+    color:#30649C;
+    padding-right: .5rem;
+    font-size:20px;
+}
+.content h3{
+
+    font-size: 20px;
+}
+.content p{
+    color: gray;
+    padding: .5rem 0;
+}
+.btn1{
+    /* border:.1rem solid gray; */
+    /* display: inline-block;
+    margin-top: 1rem; */
+    color: #30649C;
+    font-size: 18px;
+    margin-left: 55%;
+    border-radius: .5rem;
+    text-decoration: none;
+}
+.btn1:hover{
+    color:gray
+}
+</style>
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title> My Learning</title>
+{% endblock title %}
+{% block main_content %}
+
+
+
+<!-- courses card -->
+          <div class="courses">
+              <h1 class="heading1">
+        <span>M</span>
+        <span>Y</span>
+
+
+        <span class="space"></span>
+        <span>L</span>
+        <span>E</span>
+
+        <span>A</span>
+        <span>R</span>
+        <span>N</span>
+        <span>I</span>
+        <span>N</span>
+        <span>G</span>
+
+    </h1>
+            <div class="box-container mt-3">
+                <div class="box ">
+                   <img src="{% static 'images/music2.gif' %}" alt="">
+                    <div class="content">
+
+                        <h3 style="font-weight:700;">MBBS</h3>
+                        <div class='content-detail' >
+										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											 voluptas amet quasi dicta consectetur.
+											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											  voluptas amet quasi dicta consectetur</p>
+
+									</div>
+
+
+                        <a  style="margin:0px; background:#30649C; color:white; width:100%; font-size:15px;" class="btn" href="">Go to Module</a>
+                    </div>
+                </div>
+
+                <div class="box ">
+                   <img src="{% static 'images/music2.gif' %}" alt="">
+                    <div class="content">
+
+                        <h3 style="font-weight:700;">MBBS</h3>
+                        <div class='content-detail' >
+										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											 voluptas amet quasi dicta consectetur.
+											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											  voluptas amet quasi dicta consectetur</p>
+
+									</div>
+
+
+                        <a  style="margin:0px; background:#30649C; color:white; width:100%; font-size:15px;" class="btn" href="">Go to Module</a>
+                    </div>
+                </div>
+
+                <div class="box ">
+                   <img src="{% static 'images/music2.gif' %}" alt="">
+                    <div class="content">
+
+                        <h3 style="font-weight:700;">MBBS</h3>
+                        <div class='content-detail' >
+										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											 voluptas amet quasi dicta consectetur.
+											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											  voluptas amet quasi dicta consectetur</p>
+
+									</div>
+
+
+                        <a  style="margin:0px; background:#30649C; color:white; width:100%; font-size:15px;" class="btn" href="">Go to Module</a>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+              </div>
+
+
+          </div>
+
+
+
+
+
+
+    </div>
+
+{% endblock main_content %}

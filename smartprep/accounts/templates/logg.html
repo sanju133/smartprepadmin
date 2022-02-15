@@ -1,0 +1,85 @@
+
+            <form action="index.html" autocomplete="off" class="sign-in-form">
+              <div class="logo">
+                <!-- <img src="./img/logo.png" alt="easyclass" /> -->
+                <h4>LOGO</h4>
+              </div>
+
+              <div class="heading">
+                <h2>LOGIN</h2>
+
+              </div>
+
+
+              <div class="site">
+
+
+                <div class="centerdiv">
+                 <span class="span">
+                  <img class="don" src="{% static 'images/facebook.png' %}" alt="easyclass" />
+                  Facebook
+
+                 </span>
+                </div>
+
+                <div class="centerdiv">
+                  <span class="span">
+                   <img class="don" src="{% static 'images/instragram.png' %}" alt="easyclass" />
+                   Instagram
+
+                  </span>
+                 </div>
+
+
+              </div>
+
+              <div class="heading">
+                <h5>-- Or sign in with -- </h5>
+
+              </div>
+
+
+
+
+
+
+
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Name</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+                <!-- <div class="heading1">
+                  <h5>Forget Password? </h5>
+
+                </div> -->
+
+
+                <input type="submit" value="Sign In" class="sign-btn" />
+                <div class="heading">
+
+                  <h6>Don't have an account?</h6>
+                  <a href="/RegisterForm" class="toggle">Sign Up</a>
+                </div>
+
+
+              </div>
+            </form>

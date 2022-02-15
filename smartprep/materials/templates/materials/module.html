@@ -1,0 +1,582 @@
+module.html
+Who has access
+
+System properties
+Type
+HTML
+Size
+15 KB
+Storage used
+15 KB
+Location
+materials
+Owner
+Manisha Basukala
+Modified
+1:25 am by Manisha Basukala
+Opened
+12:35 pm by me
+Created
+10:29 am
+No description
+Viewers can download
+<style>
+
+.content-image {
+        background-image:
+        linear-gradient(to bottom,  #0078ff , rgba(39, 4, 138, 0.73)),url(images/header.png);
+        height: 400px;
+      }
+
+
+      .maincard{
+        display: flex;
+        justify-content:center;
+
+      }
+      .avatar {
+        height: 50px;
+        width: 50px;
+
+        }
+/* Left side card */
+      .leftcard{
+        padding-left: 50px;
+      }
+
+      .intro{
+        display: flex;
+        width: 700px;
+        padding-top: 20px;
+        box-shadow:  0 8px 16px 0 rgba(247, 247, 247, 0.2);
+        background-color: #fff;
+
+      }
+
+      .intro .introdetail{
+        padding-left:20px;
+
+      }
+/* ------------------------------------- */
+/* leftside Content Css */
+      .contentwrapper{
+      width: 700px;
+      height: 650px;
+      background: #f7f7f7;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 5px;
+    }
+      .contentwrapper .radio_tabs{
+      height: 60px;
+      background: #fff;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      font-size: 20px;
+      padding: 18px;
+      display: flex;
+      box-shadow: 0 0 2px rgba(0,0,0,0.1);
+      }
+
+      .contentwrapper .radio_tabs label{
+      margin-right: 15px;
+      display: block;
+      position: relative;
+      cursor: pointer;
+      padding-left: 28px;
+      }
+
+      .contentwrapper .radio_tabs .radio_mark:before{
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 0;
+      background: url("radio_icon.png") no-repeat 0 0;
+      width: 22px;
+      height: 22px;
+      }
+
+      .contentwrapper .radio_tabs label .input{
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      }
+
+      .contentwrapper .radio_tabs label .input:checked ~ .radio_mark{
+      color: #e94b56;;
+      }
+
+      .contentwrapper .radio_tabs label .input:checked ~ .radio_mark:before{
+      background-position: 0 -23px;
+      width: 22px;
+      height: 22px;
+      }
+
+      .contentwrapper .content p{
+      font-size: 15px;
+      line-height: 22px;
+      margin-bottom: 15px;
+      }
+
+<!--  /* overview content */-->
+      .overview1,
+      .overview2 {
+        height: 220px;
+        background: #fff;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+        padding: 18px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.1);
+
+      }
+      .overview1 h1,
+      .overview2 h1{
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+      }
+
+<!--/* quiz content  */-->
+      .quizcontent{
+        height: 300px;
+        background: #fff;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 18px;
+        box-shadow: 0 0 2px rgba(172, 147, 147, 0.1);
+
+
+      }
+
+      .start_btn h1{
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+
+      }
+      .start_btn button{
+        font-size: 20px;
+        width: 100px;
+        height: 80px;
+        margin-left: 40%;
+        margin-top: 40px;
+        border: none;
+        box-shadow: 0 0 2px rgba(0,0,0,0.1);
+
+      }
+<!--/* Resources code */-->
+      .resources {
+        height: 530px;
+        background: #fff;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 18px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.1);
+
+      }
+      .res-week{
+        height: 50px;
+        background: #fff;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 0 2px rgba(37, 3, 3, 0.1);
+
+      }
+      .res-week button{
+        font-size: 20px;
+        background-color:white;
+        border: none;
+}
+
+
+<!--/* Lecturer content */-->
+      .lecturer{
+        height: 220px;
+        background: #fff;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+        padding: 18px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.1);
+        display: flex;
+
+      }
+      .contentwrapper .lecturer .lecturercont{
+
+        padding-left: 50px;
+
+      }
+      .contentwrapper .lecturer .lecturercont img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+
+      }
+/* ----------------------------------------- */
+/* Right side card */
+      .rightcard{
+        height: 450px;
+        width: 400px;
+        box-shadow:  0 8px 16px 0 rgba(119, 108, 108, 0.2);
+        background-color: #fff;
+        margin-top: -120px;
+
+      }
+      .intro1{
+        display: flex;
+        padding-top: 20px;
+        margin-left: 20px;
+
+      }
+      .modulefeatures h2{
+        font-size: 16px;
+        margin-left: 20px;
+        padding:10px;
+
+      }
+      ion-icon {
+        color: #304695;
+      }
+
+/* ------------------------------------------------- */
+      /* Rating function Css */
+      .ratingcard{
+        position: relative;
+        height: 200px;
+        width: 400px;
+        background: #fff;
+        padding: 20px 30px;
+        box-shadow:  0 8px 16px 0 rgba(119, 108, 108, 0.2);
+        border-radius: 5px;
+
+      }
+      .ratingcard .post{
+        display: none;
+      }
+      .ratingcard .text{
+        font-size: 25px;
+        color: #666;
+        font-weight: 500;
+      }
+      .ratingcard .edit{
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 16px;
+        color: #666;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .ratingcard .edit:hover{
+        text-decoration: underline;
+      }
+      .ratingcard .star-widget input{
+        display: none;
+      }
+      .star-widget label{
+        font-size: 40px;
+        color: rgb(131, 128, 128);
+        padding: 10px;
+        float: right;
+        transition: all 0.2s ease;
+      }
+      input:not(:checked) ~ label:hover,
+      input:not(:checked) ~ label:hover ~ label{
+        color: goldenrod;
+      }
+      input:checked ~ label{
+        color: goldenrod;
+      }
+      input#rate-5:checked ~ label{
+        color: goldenrod;
+        text-shadow: 0 0 20px #952;
+      }
+      #rate-1:checked ~ form header:before{
+        content: "I just hate it ";
+      }
+      #rate-2:checked ~ form header:before{
+        content: "I don't like it ";
+      }
+      #rate-3:checked ~ form header:before{
+        content: "It is awesome ";
+      }
+      #rate-4:checked ~ form header:before{
+        content: "I just like it ";
+      }
+      #rate-5:checked ~ form header:before{
+        content: "I just love it ";
+      }
+      .ratingcard form{
+        display: none;
+      }
+      input:checked ~ form{
+        display: block;
+      }
+      form header{
+        width: 100%;
+        font-size: 25px;
+        color: #fe7;
+        font-weight: 500;
+        margin: 5px 0 20px 0;
+        text-align: center;
+        transition: all 0.2s ease;
+      }
+      form .textarea{
+        height: 100px;
+        width: 100%;
+        overflow: hidden;
+      }
+      form .textarea textarea{
+        height: 100%;
+        width: 100%;
+        outline: none;
+        color: #eee;
+        border: 1px solid #333;
+        background: #222;
+        padding: 10px;
+        font-size: 17px;
+        resize: none;
+      }
+      .textarea textarea:focus{
+        border-color: #444;
+      }
+      form .btn{
+        height: 45px;
+        width: 100%;
+        margin: 15px 0;
+      }
+      form .btn button{
+        height: 100%;
+        width: 100%;
+        border: 1px solid #444;
+        outline: none;
+        background: #222;
+        color: #999;
+        font-size: 17px;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      form .btn button:hover{
+        background: #1b1b1b;
+      }
+
+
+</style>
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title> My Learning</title>
+{% endblock title %}
+{% block main_content %}
+
+<div class="content-image" >
+
+</div>
+
+<div class="maincard mt-5" >
+  <div class="leftcard" >
+    <div class="videocard">
+      <embed style="height: 450px; width: 700px;" src="https://www.youtube.com/embed/KUroRG85Szs" ><embed>
+      <div class="intro">
+        <div class="introdetail">
+					<img src="{% static 'images/hero1.jpg' %}" style="border-radius: 50%;" class="avatar">
+				</div> &nbsp; &nbsp;
+
+				<div class="introdetail">
+					<p>Ishan Basnet<br>
+					 Program in IT<br>
+					</p>
+
+				</div>
+        <div class="introdetail">
+					<p>Level 2<br>
+					Year Three<br>
+				</p>
+
+				</div>
+      </div>
+    </div>
+
+
+
+    <div class="contentwrapper">
+      <div class="radio_tabs">
+        <label class="radio_wrap" data-radio="radio_1">
+          <input type="radio" name="cont" class="input" checked>
+          <span class="radio_mark">
+            Overview
+          </span>
+        </label>
+        <label class="radio_wrap" data-radio="radio_2">
+          <input type="radio" name="cont" class="input">
+          <span class="radio_mark">
+            Resources
+          </span>
+        </label>
+        <label class="radio_wrap" data-radio="radio_3">
+          <input type="radio" name="cont" class="input">
+          <span class="radio_mark">
+            Quiz
+          </span>
+        </label>
+        <label class="radio_wrap" data-radio="radio_4">
+          <input type="radio" name="cont" class="input">
+          <span class="radio_mark">
+            Lecturer
+          </span>
+        </label>
+      </div>
+
+      <div class="content">
+        <div class="radio_content radio_1">
+          <div class="overview1 mt-3">
+            <h1>Module Overview</h1>
+            <p>The web has evolved over the last two decades from a collection of pages containing simple static content to delivering a huge range of web applications with advanced interfaces and capabilities. These require developers with a complex range of skills and the ability to work to clearly defined web standards. We intend to introduce this world of web using Python and its web frameworks (Django), JavaScript and its libraries.</p>
+          </div>
+
+          <div class="overview2 mt-3">
+            <h1>Learning Outcomes</h1>
+            <p>By the end of the module, you will be able to ...</p>
+            <p><ion-icon name="trophy-sharp"></ion-icon>&nbsp; Identify the appropriate programming environment for developing dynamic</p>
+            <p><ion-icon name="trophy-sharp"></ion-icon>&nbsp; Identify the appropriate programming environment for developing dynamic</p>
+          </div>
+        </div>
+        <div class="radio_content radio_2">
+          <div class="resources">
+            <h1 style="font-size: 22px;">Weekly lessons</h1>
+            <hr>
+            <h1 style="font-size: 26px; font-weight: bold;">Untitled</h1>
+            <div class="res-week">
+              <h4 style="border:none;"><a href="/materials/week1/">
+                  <button>Week1</button>
+                </a></h4>
+            </div>
+            <div class="res-week">
+              <h4 style="border:none;"><a href="/materials/week1/">
+                  <button>Week2</button>
+                </a></h4>
+            </div>
+            <div class="res-week">
+              <h4 style="border:none;"><a href="/materials/week1/">
+                  <button>Week3</button>
+                </a></h4>
+            </div>
+            <div class="res-week">
+              <h4 style="border:none;"><a href="/materials/week1/">
+                  <button>Week4</button>
+                </a></h4>
+            </div>
+            <div class="res-week">
+              <h4 style="border:none;"><a href="/materials/week1/">
+                  <button>Week5</button>
+                </a></h4>
+            </div>
+          </div>
+        </div>
+        <div class="radio_content radio_3">
+           <!-- start Quiz button -->
+            <div class="quizcontent">
+              <div class="start_btn mt-3">
+                <h1>Attempt the quiz</h1>
+                <a href="/materials/quiz/">
+                  <button>Quiz</button>
+                </a>
+              </div>
+            </div>
+        </div>
+        <div class="radio_content radio_4">
+          <div class="lecturer">
+            <div class="lecturercont">
+              <img src="{% static 'images/hero1.jpg' %}">
+            </div>
+
+            <div class="lecturercont">
+              <p style="font-weight: bold; font-size: 20px;">Ishan Basnet</p>
+              <p style=" font-size: 16px;"><ion-icon name="bookmark-outline"></ion-icon>&nbsp; Senior Lecturer &nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="time-outline"></ion-icon>Exp. 2 years<br><br><ion-icon name="mail-outline"></ion-icon>&nbsp; hhfgsbhhf@gmail.com</p>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        /* by default hide all radio_content div elements except first element */
+        $(".content .radio_content").hide();
+        $(".content .radio_content:first-child").show();
+
+        /* when any radio element is clicked, Get the attribute value of that clicked radio element and show the radio_content div element which matches the attribute value and hide the remaining tab content div elements */
+        $(".radio_wrap").click(function(){
+          var current_raido = $(this).attr("data-radio");
+          $(".content .radio_content").hide();
+          $("."+current_raido).show();
+        })
+      });
+    </script>
+
+  </div>
+
+  <div class="leftcard">
+    <div class="rightcard">
+      <div class="intro1">
+        <div class="introdetail1">
+          <img src="{% static 'images/hero1.jpg' %}" class="avatar">
+        </div> &nbsp; &nbsp;
+
+        <div class="introdetail1 ">
+          <p>Ishan Basnet<br>
+          Faculty, Program in IT<br>
+          School of IT</p>
+
+        </div>
+      </div>
+      <hr>
+
+      <div class="modulefeatures">
+        <h1 style="font-size: 18px; margin-left: 20px; margin-top: 30px;">Modules Features</h1>
+        <h2><ion-icon name="time-outline"></ion-icon>&nbsp;&nbsp;11 weeks long</h2>
+        <h2><ion-icon name="save-outline"></ion-icon>&nbsp;&nbsp;5 lessons</h2>
+        <h2><ion-icon name="save-outline"></ion-icon>&nbsp;&nbsp;Quiz</h2>
+        <h2><ion-icon name="book-outline"></ion-icon>&nbsp;&nbsp;8 hours weekly study</h2>
+        <h2><ion-icon name="snow-outline"></ion-icon>&nbsp;&nbsp;Progressive Assessments</h2>
+      </div>
+
+    </div>
+
+    <div class="ratingcard mt-3">
+      <h1 style="font-size: 20px;">Rate this course</h1>
+      <hr>
+      <div class="star-widget">
+        <input type="radio" name="rate" id="rate-5">
+        <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4">
+        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3">
+        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2">
+        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1">
+        <label for="rate-1" class="fas fa-star"></label>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+{% endblock main_content %}

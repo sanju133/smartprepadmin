@@ -1,0 +1,515 @@
+<style>
+.coursedetail{
+margin-top:7%;
+}
+		.main{
+
+			margin: 90px;
+			display: flex;
+			justify-content: space-evenly;
+		}
+		.head h2{
+			font-size: 32px;
+			margin: 0px 16px 0px 0px;
+			letter-spacing: 1px;
+			font-family: OpenSans,Arial,sans-serif;
+
+		}
+
+		.mainbody{
+			margin: 40px;
+			padding-left: 50px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+		}
+		.side {
+			flex: 30%;
+			padding: 20px;
+			}
+
+		/* Main column */
+		.body {
+			flex: 70%;
+			color: #1f1f1f;
+			background-color: white;
+			padding: 20px;
+		}
+
+		.body h4{
+			font-size: 24px;
+		}
+		.body p{
+			font-size: 14px;
+		}
+
+		.certificate h1{
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+			padding: 10px;
+			font-weight: bold;
+			font-family: OpenSans-Bold, OpenSans, Arial, sans-serif;
+		}
+		.certificate p{
+			font-size: 14px;
+			margin-left: 30px;
+			color:  #6e767f;
+		}
+
+		.learning1 h1{
+			font-size: 2.125rem;
+			line-height: 2.625rem;
+			font-weight: normal;
+			font-family: OpenSans-Light, OpenSans, Arial, sans-serif;
+			text-align: center;
+			margin: 50px;
+			color:#30649C;
+
+		}
+		.learning1 .syallbus .week1{
+			display: none;
+		}
+		.syallbus{
+			margin: 60px;
+			padding-left: 30px;
+			display: flex;
+			justify-content: space-evenly;
+		}
+		.week1 {
+			color: #1f1f1f;
+			background-color: white;
+			padding: 20px;
+		}
+
+		.week1 #week{
+			font-size: 16px;
+			font-weight: bold;
+			letter-spacing: 4px;
+			color: #6e767f;
+;
+		}
+		.week1 #number{
+			font-size: 60px;
+			margin-left: 65px;
+			color: #6e767f;
+
+		}
+
+
+		.ratingreview{
+			background-color: #f8fcf8;
+			margin: 60px;
+			padding-left: 30px;
+		}
+		.ratingnumber{
+			margin-left: 8%;
+
+		}
+		.ratingreview .ratebox .reviews{
+			display: none;
+		}
+		.ratebox{
+			margin: 60px;
+			padding-left: 30px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+		}
+		.reviews{
+			flex: 50%;
+			color: #1f1f1f;
+			background-color: white;
+			padding: 20px;
+
+		}
+
+		.professor{
+			display: flex;
+			padding:20px;
+			margin-left:80px;
+		}
+		.avatar {
+			vertical-align: middle;
+			width: 90px;
+			height: 90px;
+			border-radius: 50%;
+			}
+
+
+		.btn1 {
+			padding: .7rem 2rem;
+			background: royalblue;
+			border: none;
+			color: #FFF;
+			margin: 20px auto;
+			display: block;
+			font-size: 1.3rem;
+			cursor: pointer;
+			outline: none;
+			transition: .3s;
+		}
+
+		.btn1:hover {
+			opacity: .8;
+		}
+		.btn2 {
+			padding: .7rem 2rem;
+			background: royalblue;
+			border: none;
+			color: #FFF;
+			margin: 20px auto;
+			display: block;
+			font-size: 1.3rem;
+			cursor: pointer;
+			outline: none;
+			transition: .3s;
+		}
+
+		.btn2:hover {
+			opacity: .8;
+		}
+	</style>
+
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>details</title>
+{% endblock title %}
+
+{% block main_content %}
+<div class="coursedetail">
+		<div class="main">
+			<div class="head">
+
+				<h1>{{i.course_Name}}</h1><br>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>  &nbsp;4.9 &nbsp; 76,209 ratings . 20,00 reviews
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<br>
+					<br>
+				<h3 class="title">${{i.price}}</h3>
+
+				{% if user.is_authenticated %}
+                        <button data-i={{i.id}} data-action="add"  class="btn update-cart" style="width: 25%; height: 60px; background-color:#30649C; color:white;">Add to cart</button>
+
+				{% else %}
+                    <a href="/login">
+                        <button data-i={{i.id}} data-action="add"  class="btn btn-primary update-cart " style="width: 25%; height: 60px; background-color:#30649C">Add to cart</button>
+                    </a>
+				{% endif %}
+			</div>
+			<div class="head">
+				<a href="#!"><img class="card-img-top" src="/{{i.course_Image}}" alt="..." /></a>
+
+			</div>
+		</div>
+		<!-- About the coursee -->
+		<div class="mainbody">
+			<div class="body">
+				<h4>About this course</h4>
+				<p style="font-size:17px;">{{i.course_Description}}</p>
+
+			</div>
+
+			<div class="icons">
+
+			</div>
+
+			<div class="side">
+				<div class="certificate">
+					<h1><ion-icon name="timer-outline"></ion-icon >&nbsp; Flexible deadlines <h1>
+					<p>Reset deadlines in accordance to your schedule.</p>
+
+					<h1><ion-icon name="newspaper-outline"></ion-icon>&nbsp;&nbsp;Shareable Certificate <h1>
+					<p>Earn a Certificate upon completion</p>
+
+					<h1><ion-icon name="globe-outline"></ion-icon>&nbsp;&nbsp;100% online <h1>
+					<p>Start instantly and learn at your own schedule</p>
+
+					<h1><ion-icon name="cellular-outline"></ion-icon>&nbsp;&nbsp;Beginner Level</h1>
+					<p style="font-size: 14px;">Approx. 15 hours to complete</p>
+
+
+				</div>
+
+
+			</div>
+		</div>
+		<hr>
+
+
+		<!-- Weekly syallbus -->
+
+
+		<div class="learning1">
+			<h1>Syallbus what you will learn from this course</h1>
+			<div class="syallbus">
+				<div class="week1">
+					<h1 id="week">Course</h1>
+					<p id="number">1</p>
+				</div>
+
+				<div class="week1">
+					<h3>Fundamentals of Graphic Design</h3><br>
+					<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>  &nbsp;4.9 &nbsp; 76,209 ratings . 20,00 reviews
+
+								<style type="text/css">
+									.checked {
+										 color: orange;
+									}
+
+								</style>
+								<br><br>
+
+					<p>Graphic Design is all around us! Words and pictures—the building blocks of graphic design—are the elements that carry the majority of the content in both the digital world and the printed world. As graphic design becomes more visible and prevalent in our lives, graphic design as a practice becomes more important in our culture. Through visual examples, this course will teach you the fundamental principles of graphic design: imagemaking, typography, composition, working with color and shape... foundational skills that are common in all areas of graphic design practice. I don't just want you to watch a video of someone talking about design, I want you to MAKE design! If you want to be a designer you have to be a maker and a communicator, so this course will offer you lots of opportunities to get your hands dirty with exercises and with more practical projects. At the end of this course you will have learned how to explore and investigate visual representation through a range of image-making techniques; understand basic principles of working with shape, color and pattern; been exposed to the language and skills of typography; and understand and have applied the principles of composition and visual contrast. If you complete the course, along with its optional (but highly recommended) briefs, you will have a core set of graphic design skills that you can apply to your own projects, or to more deeply investigate a specialized area of graphic design. To succeed in this course you will need access to a computer. You can complete this course without one but it will be tougher. Access to, and a beginner's level knowledge of Adobe Creative Suite programs, such as Illustrator, Photoshop and InDesign will help you, especially if you want to complete the optional briefs.
+					</p>
+				</div>
+			</div>
+
+			<div class="syallbus">
+				<div class="week1">
+					<h1 id="week">Course</h1>
+					<p id="number">2</p>
+				</div>
+
+				<div class="week1">
+					<h3>Fundamentals of Graphic Design</h3><br>
+					<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>  &nbsp;4.9 &nbsp; 76,209 ratings . 20,00 reviews
+
+								<style type="text/css">
+									.checked {
+											color: orange;
+									}
+
+								</style>
+								<br><br>
+
+					<p>Graphic Design is all around us! Words and pictures—the building blocks of graphic design—are the elements that carry the majority of the content in both the digital world and the printed world. As graphic design becomes more visible and prevalent in our lives, graphic design as a practice becomes more important in our culture. Through visual examples, this course will teach you the fundamental principles of graphic design: imagemaking, typography, composition, working with color and shape... foundational skills that are common in all areas of graphic design practice. I don't just want you to watch a video of someone talking about design, I want you to MAKE design! If you want to be a designer you have to be a maker and a communicator, so this course will offer you lots of opportunities to get your hands dirty with exercises and with more practical projects. At the end of this course you will have learned how to explore and investigate visual representation through a range of image-making techniques; understand basic principles of working with shape, color and pattern; been exposed to the language and skills of typography; and understand and have applied the principles of composition and visual contrast. If you complete the course, along with its optional (but highly recommended) briefs, you will have a core set of graphic design skills that you can apply to your own projects, or to more deeply investigate a specialized area of graphic design. To succeed in this course you will need access to a computer. You can complete this course without one but it will be tougher. Access to, and a beginner's level knowledge of Adobe Creative Suite programs, such as Illustrator, Photoshop and InDesign will help you, especially if you want to complete the optional briefs.
+					</p>
+				</div>
+			</div>
+			<div class="syallbus">
+				<div class="week1">
+					<h1 id="week">Course</h1>
+					<p id="number">3</p>
+				</div>
+
+				<div class="week1">
+					<h3>Fundamentals of Graphic Design</h3><br>
+					<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>  &nbsp;4.9 &nbsp; 76,209 ratings . 20,00 reviews
+
+								<style type="text/css">
+									.checked {
+											color: orange;
+									}
+
+								</style>
+								<br><br>
+
+					<p>Graphic Design is all around us! Words and pictures—the building blocks of graphic design—are the elements that carry the majority of the content in both the digital world and the printed world. As graphic design becomes more visible and prevalent in our lives, graphic design as a practice becomes more important in our culture. Through visual examples, this course will teach you the fundamental principles of graphic design: imagemaking, typography, composition, working with color and shape... foundational skills that are common in all areas of graphic design practice. I don't just want you to watch a video of someone talking about design, I want you to MAKE design! If you want to be a designer you have to be a maker and a communicator, so this course will offer you lots of opportunities to get your hands dirty with exercises and with more practical projects. At the end of this course you will have learned how to explore and investigate visual representation through a range of image-making techniques; understand basic principles of working with shape, color and pattern; been exposed to the language and skills of typography; and understand and have applied the principles of composition and visual contrast. If you complete the course, along with its optional (but highly recommended) briefs, you will have a core set of graphic design skills that you can apply to your own projects, or to more deeply investigate a specialized area of graphic design. To succeed in this course you will need access to a computer. You can complete this course without one but it will be tougher. Access to, and a beginner's level knowledge of Adobe Creative Suite programs, such as Illustrator, Photoshop and InDesign will help you, especially if you want to complete the optional briefs.
+					</p>
+				</div>
+			</div>
+
+			</div>
+			<button class="btn1">Load More</button>
+
+
+
+		</div>
+
+
+		<!-- Review Section -->
+		<div class="ratingreview">
+			<div class="ratingnumber">
+				<span style="font-size: 60px; font-weight:bold;">4.9</span>&nbsp;
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star"></span>&nbsp; 76,209 ratings . 20,00 reviews
+
+				<style type="text/css">
+					.checked {
+							color: orange;
+					}
+
+				</style>
+				<p style="font-size: 24px;">Top Reviews</p>
+			</div>
+				<hr>
+
+			<div class="ratebox">
+				<div class="reviews">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
+
+				</div>
+				<div class="reviews">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
+
+				</div>
+
+				<div class="reviews">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
+
+				</div>
+				<div class="reviews">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
+
+				</div>
+				<div class="reviews">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
+
+				</div>
+				<div class="reviews">
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
+
+				</div>
+			</div>
+			<button class="btn2">See More</button>
+			<hr>
+
+			<h1 style="font-size: 24px; margin-left: 8%;">Instructor</h1>
+			<div class="professor">
+				<div class="profdetail">
+					<img src="img/about-us.jpg" class="avatar">
+				</div> &nbsp; &nbsp;
+
+				<div class="profdetail">
+					<p>Ishan Basnet<br>
+					Faculty, Program in IT<br>
+					School of IT</p>
+
+				</div>
+			</div>
+
+			</div>
+
+
+					<!-- Professsor Detail -->
+		</div>
+
+
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(".week1").slice(0, 2).show()
+        $(".btn1").on("click", function(){
+			$(".week1:hidden").slice(0,2).slideDown()
+           if ($(".week1:hidden").length == 0) {
+                 $(".btn1").fadeOut('slow')
+		   }
+
+        })
+
+
+        $(".reviews").slice(0, 2).show()
+        $(".btn2").on("click", function(){
+			$(".reviews:hidden").slice(0, 2).slideDown()
+           if ($(".reviews:hidden").length == 0) {
+                 $(".btn2").fadeOut('slow')
+		   }
+
+        })
+    </script>
+
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+{% endblock main_content %}

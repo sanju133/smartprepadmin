@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>Course</title>
+{% endblock title %}
+
+{% block main_content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+
+</style>
+
+<!-- ----------our Course-------- -->
+
+<div class="types mt-5 " style="background-color:white">
+<!--    <h1 class="heading1">-->
+<!--        <span>O</span>-->
+<!--        <span>U</span>-->
+<!--        <span>R</span>-->
+<!--        <span class="space"></span>-->
+<!--        <span>C</span>-->
+<!--        <span>O</span>-->
+<!--        <span>U</span>-->
+<!--        <span>R</span>-->
+<!--        <span>S</span>-->
+<!--        <span>E</span>-->
+<!--        <span>S</span>-->
+<!--    </h1>-->
+    <div class="wrapper">
+        <div class="serch">
+        <div class="box" style="margin: auto;">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        <input autocomplete="off" placeholder="Search Courses" aria-label="Search" class="sc-irKDMX fyRspk"  align="center" id="myButton" value="">
+        </div>
+        </div>
+
+        <div class="links pt-5">
+            <ul>
+                <li data-view="grid-view" class="li-grid">
+                    <i class="fas fa-th-large"></i>
+                    Categories
+                </li>
+                 <li data-view="list-view" class="li-list active">
+                    <i class="fas fa-th-list"></i>
+                    Courses
+                </li>
+            </ul>
+        </div>
+        <div class="view_main">
+
+            <div class="view_wrap grid-view" style="display: none;">
+
+                {% for i in category_material %}
+                <div class="view_item">
+                    <div class="vi_left">
+                        <img src="/{{i.category_Image}}" alt="Relevant Image">
+                    </div>
+                    <div class="vi_right" style="height:200px">
+                        <p class="title" style="text-overflow:ellipsis;
+overflow:hidden">{{i.category_Name}}</p>
+                        <div class="content-content">
+                        <p class="content"   style="  text-align: justify; color:black">{{i.category_Description}}</p>
+                        </div>
+
+                        <div class="bottom-CE">
+                            <span class="btn" ><a href="/materials/get_course_category/{{i.id}}" style="text-decoration:none; color:white"> Explore > </a></span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+             <div class="view_wrap list-view" style="display: block;">
+
+                {% for i in category_material %}
+                 {%for j in i.courses_set.all %}
+                <div class="view_item">
+                    <div class="vi_left">
+                        <img src="/{{j.course_Image}}" alt="Relevant Image">
+                    </div>
+                    <div class="vi_right">
+                        <p class="title">{{j.course_Name}}</p>
+                        <p class="content" style="overflow:hidden;
+                        display:-webkit-box;
+                        -webkit-box-orient:vertical;
+                        -webkit-line-clamp:2">
+                            {{j.course_Description}}</p>
+                        <div class="btn"> Explore ></div>
+                    </div>
+                </div>
+                 {% endfor %}
+                  {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var li_links = document.querySelectorAll(".links ul li");
+        var view_wraps = document.querySelectorAll(".view_wrap");
+        var list_view = document.querySelector(".list-view");
+        var grid_view = document.querySelector(".grid-view");
+
+        li_links.forEach(function(link){
+            link.addEventListener("click", function(){
+                li_links.forEach(function(link){
+                    link.classList.remove("active");
+                })
+
+                link.classList.add("active");
+
+                var li_view = link.getAttribute("data-view");
+
+                view_wraps.forEach(function(view){
+                    view.style.display = "none";
+                })
+
+                if(li_view == "list-view"){
+                    list_view.style.display = "block";
+                }
+                else{
+                    grid_view.style.display = "block";
+                }
+            })
+        })
+
+    </script>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/materials/courses/";
+    };
+</script>
+    {% endblock main_content %}

@@ -1,0 +1,161 @@
+<style>
+
+    .form-control{
+
+
+    margin: 0.7rem 3rem;
+
+  }
+</style>
+
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>Contact Us</title>
+{% endblock title %}
+
+{% block main_content %}
+
+    <!-------------------------------- navbar------------------------------------------------- -->
+    <div id="contactus">
+
+<!-- ----------------------------------------carousel------------------------------ -->
+      <section class="about">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-controls">
+
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image:url({% static 'images/e-learning1.jpg' %}) " ></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image:url({% static 'images/e-learning2.jpg' %})"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image:url({% static 'images/e-learning3.jpg' %})"></button>
+            </div>
+
+          </div>
+
+
+
+
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image:url({% static 'images/e-learning1.jpg' %})">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/e-learning2.jpg' %})">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/e-learning3.jpg' %})">
+
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+</section>
+
+
+
+      <!-- --------------------------------body ---------------------- -->
+
+<section class="contact-section">
+
+    <div class="contact-body">
+      <h1 class="heading1">
+        <span>G</span>
+        <span>E</span>
+        <span>T</span>
+
+        <span class="space"></span>
+        <span>I</span>
+        <span>N</span>
+        <span class="space"></span>
+        <span>T</span>
+        <span>O</span>
+        <span>U</span>
+        <span>C</span>
+        <span>H</span>
+
+    </h1>
+        <div class="contact-info">
+
+            <div>
+                <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                <span class="text1">E-mail </span>
+                <span class="text1">smartprep12@gmail.com</span>
+            </div>
+
+            <div>
+                <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                <span class="text1">Phone no </span>
+                <span class="text1">+977 9803242554</span>
+                <span class="text1">+977 9818696705</span>
+            </div>
+
+            <div>
+                <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                <span class="text1">Facebook </span>
+                <span class="text1">facebook.com/smartprep</span>
+            </div>
+
+
+
+
+            <div>
+               <span><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                <span>Instragram</span>
+                <span class="text1">instragram.com/smartprep</span>
+            </div>
+
+
+        </div>
+    </div>
+
+    </section>
+
+    <!-- -----------------form-------------- -->
+    <h1 class="heading1">
+      <span>M</span>
+      <span>E</span>
+      <span>S</span>
+
+
+      <span>S</span>
+      <span>A</span>
+
+      <span>G</span>
+      <span>E</span>
+      <span class="space"></span>
+      <span>U</span>
+      <span>S</span>
+
+
+  </h1>
+    <div class = "contact-form mt-3">
+
+      <form>
+        <div class="contact">
+          <input type = "text" class = "form-control" placeholder="First Name">
+          <input type = "text" class = "form-control" placeholder="Last Name">
+        </div>
+        <div class="contact">
+          <input type = "email" class = "form-control" placeholder="E-mail">
+          <input type = "text" class = "form-control" placeholder="Phone">
+        </div>
+        <textarea rows = "5" placeholder="Message" class = "form-control"></textarea>
+        <input type = "submit" class = "send-btn" value = "send message">
+      </form>
+
+      <div>
+        <img src = "{% static 'images/contact.gif' %}" alt = "">
+      </div>
+    </div>
+  </div>
+{% endblock main_content %}

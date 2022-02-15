@@ -1,0 +1,47 @@
+<style>
+    .myForm label.control-label, .myForm div {width:100%;
+font-size:16px;
+font-weight:700;
+font-family: martel,serif;
+    padding-top: 0
+
+}
+</style>
+{% extends 'lecturer-layout.html' %}
+{% load bootstrap %}
+{% block title %}
+    <title>Add Lecture</title>
+{% endblock %}
+
+{% block main_content %}
+
+<div class="container pt-5">
+<div class="row">
+
+    <div class="col-md-6 offset-md-3">
+        <h4 id="head4" class="text-center">Add Lecture</h4>
+          {% include 'messages.html'%}
+        <div class="card py-2 px-2">
+        <form class="myForm" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form_lecture | bootstrap_horizontal }}
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Enter course
+
+
+
+   for(field in form_fields){
+   form_fields[field].className += ' my-3'
+   }
+</script>
+
+{% endblock  %}
+
+

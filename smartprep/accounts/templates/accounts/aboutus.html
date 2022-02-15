@@ -1,0 +1,190 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>About Us</title>
+{% endblock title %}
+
+{% block main_content %}
+
+
+    <div id="contactus">
+
+
+
+<!-- ----------------------------------------carousel------------------------------ -->
+      <section class="about">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-controls">
+
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image:url({% static 'images/e-learning1.jpg' %}) " ></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image:url({% static 'images/e-learning2.jpg' %})"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image:url({% static 'images/e-learning3.jpg' %})"></button>
+            </div>
+
+          </div>
+
+
+
+
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image:url({% static 'images/e-learning1.jpg' %})">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/e-learning2.jpg' %})">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/e-learning3.jpg' %})">
+
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+</section>
+<!-- ----------our story-------- -->
+  <section class="ourstory">
+
+
+<h1 class="heading1">
+  <span>O</span>
+  <span>U</span>
+  <span>R</span>
+  <span class="space"></span>
+  <span>S</span>
+  <span>T</span>
+  <span>O</span>
+  <span>R</span>
+  <span>Y</span>
+
+</h1>
+
+<div class="about-area">
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-4">
+      <div class="about-img mt-5">
+        <img src="{% static 'images/about-us.jpg' %}" alt="" width=130%>
+
+      </div>
+    </div>
+
+    <div class="col-lg-8 col-lg-offset-1">
+      <div class="story">
+
+
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex distinctio nobis saepe illum vel. Et nobis officia, ratione hic dicta aperiam
+        obcaecati? Est eligendi iure corrupti eum assumenda, deleniti odit officiis laborum ex voluptates adipisci consequatur,
+        animi distinctio, vero praesentium possimus officia laudantium! Consequatur repudiandae
+         accusamus temporibus dolorum veniam! Doloremque!</p><br>
+
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Enim ratione, et quaerat similique adipisci, facilis sed,
+         quo earum quisquam molestias ut dolorum nesciunt quod? Corporis sequi provident libero omnis mollitia, similique doloremque inventore possimus, aperiam consequuntur ipsum dolor iste tempore. Culpa ratione perspiciatis maiores
+         consectetur laboriosam quisquam, cum fugiat quos?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+        </p>
+          </div>
+    </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- About us -->
+
+<section class="services">
+  <h1 class="heading1">
+    <span>A</span>
+    <span>B</span>
+    <span>O</span>
+    <span>U</span>
+     <span>T</span>
+    <span class="space"></span>
+    <span>U</span>
+    <span>S</span>
+
+
+  </h1>
+  <div class="box-container">
+    <div class="box">
+      <i class="fa fa-users" aria-hidden="true"></i>
+      <h3>Who we are?</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing
+         elit. Saepe cum, autem eius nam eaque
+        quos vel sapiente deleniti quam tenetur!</p>
+    </div>
+
+    <div class="box">
+      <i class="fa fa-book" aria-hidden="true"></i>
+      <h3>What we do?</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing
+         elit. Saepe cum, autem eius nam eaque
+        quos vel sapiente deleniti quam tenetur!</p>
+    </div>
+
+    <div class="box">
+      <i class="fa fa-handshake-o" aria-hidden="true"></i>
+      <h3>Why choose us?</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing
+         elit. Saepe cum, autem eius nam eaque
+        quos vel sapiente deleniti quam tenetur!</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- -------------patners---------- -->
+<section id="brand" class="brands"  >
+    <div class="container">
+        <h1 class="heading1">
+            <span>O</span>
+            <span>U</span>
+            <span>R</span>
+            <span class="space"></span>
+            <span>P</span>
+            <span>A</span>
+            <span>T</span>
+            <span>N</span>
+            <span>E</span>
+            <span>R</span>
+            <span>S</span>
+        </h1>
+
+      <section class="customer-logos slider">
+          <div class="slide"><img src="{% static 'images/b1.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/b2.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/b3.png' %}"  alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/b4.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/b5.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/b6.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/b7.png' %}" alt="logo"></div>
+
+      </section>
+  </div>
+  </section>
+
+
+
+
+    </div>
+
+
+
+
+
+{% endblock main_content %}
+
+
+
+
+

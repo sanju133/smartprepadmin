@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+<title>Order history User</title>
+{% endblock%}
+{% block main_content %}
+<section class="get_store mt-5"  >
+    <div class="container mt-5">
+    <div class="row ">
+        <div class="col-lg-12 mt-5">
+            <div class="store  card py-2 px-2">
+                <h1 class="text-left">Order history</h1>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered mt-3">
+                    <tr class="store1">
+                        <th>Image</th>
+                        <th>Course Name</th>
+                        <th>Price</th>
+                        <th>Order Id</th>
+                        <th>Payment Status</th>
+                        <th>Action</th>
+
+                    </tr>
+                    {% for file in detail %}
+                    <tr class="store2" >
+
+                        <td><img class="row-image" src="/{{file.course_Image}}"> </td>
+
+                        <td class="text-uppercase">{{file.course_Name}} </td>
+                        <td>{{file.price}} </td>
+                        <td>{{file.orderid}} </td>
+
+
+                        <td class="text-uppercase">{{file.complete}} </td>
+                        <td><a href="/materials/delete_history/{{file.orderid}}"
+                               class="btn btn-danger btn-sm m-2"
+                               onclick="return confirm('Are you sure want to delete this file?')">
+
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a></td>
+
+
+
+<!--                        <td class="text-uppercase" >{{file.complete}} </td>-->
+<!--                        <td class="text-uppercase">{{file.status}}</td>-->
+                    </tr>
+                    {% endfor %}
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}

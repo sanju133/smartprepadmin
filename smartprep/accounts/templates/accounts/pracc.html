@@ -1,0 +1,700 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+
+.form-group{width:122%;
+padding-top:25px}
+
+input[type=text] {
+  background-color: #E2EBF3;
+
+}
+input[type=email] {
+  background-color: #E2EBF3;
+
+}
+input[type=password] {
+  background-color: #E2EBF3;
+
+}
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
+.main{
+margin-top:5%;
+}
+
+
+
+.site{
+  display:flex;
+   justify-content: space-between;
+   margin-left:1%;
+
+}
+
+
+.centerdiv{
+  flex-basis: 48%;
+  height:40px;
+  background-color:#30649C;
+  border:1px solid #fff;
+  border-radius: 20px ;
+
+
+}
+.don{
+  width:20px;
+  margin: 7%;
+
+}
+.span{
+  font-size: 12px;
+  color: #fff;
+}
+
+
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+
+  /* padding: 2rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  position: relative;
+  width: 100%;
+  max-width: 1020px;
+  height: 560px;
+  background-color: #30649C;
+  box-shadow: 0px 2px 18px 0px rgb(0 0 0 / 30%);
+  margin-bottom: 3%;
+}
+
+.inner-box {
+  position: absolute;
+  width: calc(100% - 4.1rem);
+  height: calc(100% - 4.1rem);
+  top: 45%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+}
+
+.forms-wrap {
+
+  height: 100%;
+  width: 45%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  transition: 0.8s ease-in-out;
+}
+
+main form {
+  max-width: 270px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  transition: opacity 0.02s 0.4s;
+}
+
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 27px;
+  margin-right: 0.3rem;
+}
+
+.logo h4 {
+  font-size: 1.1rem;
+  margin-top: -9px;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.heading h2 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.heading h6 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 0.9rem;
+  display: inline;
+}
+.heading h5 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 15px;
+  display: inline;
+  margin-left: 25%;
+}
+
+.heading1 h5 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+  display: inline;
+  margin-left: 60%;
+}
+
+.toggle {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: 0.3s;
+  text-decoration: underline;
+}
+
+.toggle:hover {
+  color: black;
+}
+
+.input-wrap {
+  position: relative;
+  height: 37px;
+  margin-bottom: 2rem;
+}
+
+.input-field {
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #fff;
+  transition: 0.4s;
+}
+.forget{
+  color: #30649C;
+  margin-left:153px;
+  text-decoration: none;
+  font-size: 14px;
+}
+label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.input-field.active {
+  border-bottom-color: #fff;
+}
+
+.input-field.active + label {
+  font-size: 0.75rem;
+  top: -2px;
+}
+
+.sign-btn {
+  display: inline-block;
+  width: 120%;
+  height: 43px;
+  background-color: #fff;
+  color: #30649C;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  font-size: 20px;
+  margin-bottom: 2rem;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.sign-btn:hover {
+  background-color: #151111;
+  color:#fff;
+}
+
+.text {
+  color: #fff;
+  font-size: 0.7rem;
+}
+
+.text a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 50%;
+  font-size: 15px;
+
+}
+
+.text a:hover {
+  color: #151111;
+}
+
+main.sign-up-mode form.sign-in-form {
+  opacity: 0;
+  pointer-events: none;
+}
+
+main.sign-up-mode form.sign-up-form {
+  opacity: 1;
+  pointer-events: all;
+}
+
+main.sign-up-mode .forms-wrap {
+  left: 55%;
+}
+
+main.sign-up-mode .carousel1 {
+  left: 0%;
+}
+
+.carousel1{
+  position: absolute;
+  height: 110%;
+  width: 55%;
+  left: 51%;
+  top: 0;
+  background-color: white;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  transition: 0.8s ease-in-out;
+}
+
+.images-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.image {
+  width: 90%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.5s;
+}
+
+.img-1 {
+  transform: translate(0, -50px);
+}
+
+.img-2 {
+  transform: scale(0.4, 0.5);
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+.img-3 {
+  transform: scale(0.3) rotate(-20deg);
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+.image.show {
+  opacity: 1;
+  transform: none;
+}
+
+.text-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-wrap {
+  max-height: 2.2rem;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transform: translateY(0);
+  transition: 0.5s;
+}
+
+.text-group h2 {
+  line-height: 1.6rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color:#30649C;
+}
+
+.bullets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bullets span {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #aaa;
+  margin: 0 0.25rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bullets span.active {
+  width: 1.1rem;
+  background-color: #151111;
+  border-radius: 1rem;
+}
+
+@media (max-width: 850px) {
+  .box {
+    height: auto;
+    max-width: 550px;
+    overflow: hidden;
+  }
+
+  .inner-box {
+    position: static;
+    transform: none;
+    width: revert;
+    height: revert;
+    padding: 2rem;
+  }
+
+  .forms-wrap {
+    position: revert;
+    width: 100%;
+    height: auto;
+  }
+
+  form {
+    max-width: revert;
+    padding: 1.5rem 2.5rem 2rem;
+    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+  }
+
+  .heading {
+    margin: 2rem 0;
+  }
+
+  form.sign-up-form {
+    transform: translateX(100%);
+  }
+
+  main.sign-up-mode form.sign-in-form {
+    transform: translateX(-100%);
+  }
+
+  main.sign-up-mode form.sign-up-form {
+    transform: translateX(0%);
+  }
+
+  .carousel1{
+    position: revert;
+    height: auto;
+    width: 100%;
+    padding: 3rem 2rem;
+    display: flex;
+  }
+
+  .images-wrapper {
+    display: none;
+  }
+
+  .text-slider {
+    width: 100%;
+  }
+}
+
+@media (max-width: 530px) {
+  main {
+    padding: 1rem;
+  }
+
+  .box {
+    border-radius: 2rem;
+  }
+
+  .inner-box {
+    padding: 1rem;
+  }
+
+  .carousel1{
+    padding: 1.5rem 1rem;
+    border-radius: 1.6rem;
+  }
+
+  .text-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .text-group h2 {
+    font-size: 1.2rem;
+  }
+
+  .main{
+margin-top:5%;
+}
+
+}
+
+
+
+
+
+
+
+</style>
+
+{% extends 'layout.html' %}
+{% load bootstrap %}
+{% load static %}
+
+{% block title %}
+<title> SignIn Form</title>
+{% endblock title %}
+
+
+
+{% block main_content %}
+
+
+
+    <main class="main">
+      <div class="box">
+
+        <div class="inner-box">
+          <div class="forms-wrap">
+
+<!--             <div class="card p-2" id="myForml" style="line-height:1.5" >-->
+<!--                <form class="form myForm" action="" method="POST">-->
+<!--                    <h3 id="head3" class="text-center mt-2 mb-2">Login</h3>-->
+<!--                    {% csrf_token %}-->
+<!--                    {{ form_login | bootstrap_horizontal }}-->
+<!--                    <div id="btnn" class="pt-3">-->
+<!--                    <button id="buttonn" type="submit" class="btnn btn btn-primary align-content-center"-->
+<!--                            style="line-height:0.8; width:100%">Submit</button>-->
+<!--                    </div>-->
+<!--                    <div class="fontt">-->
+<!--                        <p id="fontt" class="text-center" style="font-weight:100; ">Don't have an account?-->
+<!--                            <a id="form-link1" href="/register">Register</a>-->
+<!--                            <br>-->
+<!--                            Forgot password?  <a id="form-link2" href="/reset_password/">Reset</a>-->
+<!--                        </p>z-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+
+
+<!--            <form action="" autocomplete="off" class="sign-in-form">-->
+<!--              {% csrf_token %}-->
+<!--                <div class="logo">-->
+<!--                &lt;!&ndash; <img src="./img/logo.png" alt="easyclass" /> &ndash;&gt;-->
+<!--                <h4>LOGO</h4>-->
+<!--              </div>-->
+
+<!--              <div class="heading">-->
+<!--                <h2>LOGIN</h2>-->
+
+<!--              </div>-->
+
+
+<!--              <div class="site">-->
+
+
+<!--                <div class="centerdiv">-->
+<!--                 <span class="span">-->
+<!--                  <img class="don" src="{% static 'images/facebook.png' %}" alt="easyclass" />-->
+<!--                  Facebook-->
+
+<!--                 </span>-->
+<!--                </div>-->
+
+<!--                <div class="centerdiv">-->
+<!--                  <span class="span">-->
+<!--                   <img class="don" src="{% static 'images/instragram.png' %}" alt="easyclass" />-->
+<!--                   Instagram-->
+
+<!--                  </span>-->
+<!--                 </div>-->
+
+
+<!--              </div>-->
+
+<!--              <div class="heading">-->
+<!--                <h5>&#45;&#45; Or sign in with &#45;&#45; </h5>-->
+
+<!--              </div>-->
+
+
+
+
+
+
+
+
+<!--              <div class="actual-form">-->
+<!--                <div class="input-wrap">-->
+<!--                  <input-->
+<!--                    type="text"-->
+<!--                    minlength="4"-->
+<!--                    class="input-field"-->
+<!--                    name="username"-->
+<!--                    autocomplete="off"-->
+<!--                    required-->
+<!--                  />-->
+<!--                  <label>Name</label>-->
+<!--                </div>-->
+
+<!--                <div class="input-wrap">-->
+<!--                  <input-->
+<!--                    type="password"-->
+<!--                    minlength="4"-->
+<!--                    class="input-field"-->
+<!--                    autocomplete="off"-->
+<!--                    name="password"-->
+<!--                    required-->
+<!--                  />-->
+<!--                  <label>Password</label>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; <div class="heading1">-->
+<!--                  <h5>Forget Password? </h5>-->
+
+<!--                </div> &ndash;&gt;-->
+
+
+<!--                <input type="submit" value="Sign In" class="sign-btn" />-->
+<!--                <div class="heading">-->
+
+<!--                  <h6>Don't have an account?</h6>-->
+<!--                  <a href="/RegisterForm" class="toggle">Sign Up</a>-->
+<!--                </div>-->
+
+
+<!--              </div>-->
+<!--            </form>-->
+	<form method="POST" action="">
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="username" placeholder="Username..." class="form-control">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+								<input type="password" name="password" placeholder="Password..." class="form-control" >
+						</div>
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 				<input class="btn login_btn" type="submit" value="Login">
+				   			</div>
+					</form>
+          </div>
+
+          <div class="carousel1">
+            <div class="images-wrapper">
+              <img src="{% static 'images/login.jpg' %}" class="image img-1 show" alt="" />
+              <img src="{% static 'images/login1.jpg' %}" class="image img-2" alt="" />
+              <img src="{% static 'images/login2.jpg' %}" class="image img-3" alt="" />
+            </div>
+
+            <div class="text-slider">
+              <div class="text-wrap">
+                <div class="text-group">
+                  <h2>Create your own courses</h2>
+                  <h2>Customize as you like</h2>
+                  <h2>Invite students to your class</h2>
+                </div>
+              </div>
+
+              <div class="bullets">
+                <span class="active" data-value="1"></span>
+                <span data-value="2"></span>
+                <span data-value="3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </main>
+<script>
+  const inputs = document.querySelectorAll(".input-field");
+const toggle_btn = document.querySelectorAll(".toggle");
+const main = document.querySelector("main");
+const bullets = document.querySelectorAll(".bullets span");
+const images = document.querySelectorAll(".image");
+
+inputs.forEach((inp) => {
+  inp.addEventListener("focus", () => {
+    inp.classList.add("active");
+  });
+  inp.addEventListener("blur", () => {
+    if (inp.value != "") return;
+    inp.classList.remove("active");
+  });
+});
+
+toggle_btn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    main.classList.toggle("sign-up-mode");
+  });
+});
+
+function moveSlider() {
+  let index = this.dataset.value;
+
+  let currentImage = document.querySelector(`.img-${index}`);
+  images.forEach((img) => img.classList.remove("show"));
+  currentImage.classList.add("show");
+
+  const textSlider = document.querySelector(".text-group");
+  textSlider.style.transform = `translateY(${-(index - 1) * 2.2}rem)`;
+
+  bullets.forEach((bull) => bull.classList.remove("active"));
+  this.classList.add("active");
+}
+
+bullets.forEach((bullet) => {
+  bullet.addEventListener("click", moveSlider);
+});
+
+</script>
+{% endblock main_content %}

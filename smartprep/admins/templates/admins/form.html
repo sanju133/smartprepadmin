@@ -1,0 +1,76 @@
+{% extends 'admin-layout.html' %}
+{% load static %}
+{% block title %}
+<title>Show course</title>
+{% endblock %}
+{% block main_content %}
+<div class="main1" id="menu-toggle">
+            <div class="main2">
+                <div class="topbar">
+                    <div class="toogle1">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </div>
+                    <!-- search -->
+                    <div class="search">
+                        <label>
+                            <input type="text" placeholder="Search here">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
+                    </div>
+                    <!-----notification-->
+                    <div class="notification">
+                        <ion-icon name="notifications-outline"></ion-icon>
+                    </div>
+                    <!-- user img-->
+                    <div class="user">
+                        <img src = "{% static 'images/user.jpg' %}" alt = "" width="40px" height="40px">
+                        <div>
+                            <h4>Sanju Maharjan</h4>
+                        <p style="color:gray;">Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        <!-- heading -->
+         <h1 style="margin-left:2%;" class="heading">Form</h1>
+    <div class="wrapper">
+    <form action="#">
+        <div class="addphoto">
+            <div class="photo">
+            <img src = "{% static 'images/user.jpg' %}" alt = "" width="70px" height="70px">
+        </div>
+            <input type="file" class="file-upload">
+        </div>
+      <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="name" placeholder="Enter your name">
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="email" placeholder="Enter your email">
+          <i class='fas fa-user'></i>
+        </div>
+      </div>
+      <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="phone" placeholder="Enter your phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="website" placeholder="Enter your website">
+          <i class='fas fa-globe'></i>
+        </div>
+      </div>
+      <div class="message">
+        <textarea placeholder="Write your message" name="message"></textarea>
+        <i class='fas fa-envelope'></i>
+      </div>
+      <div class="button-area">
+        <button type="submit">Submit</button>
+        <span></span>
+      </div>
+    </form>
+  </div>
+    </div>
+{% endblock %}

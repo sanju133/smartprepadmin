@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>Course</title>
+{% endblock title %}
+
+{% block main_content %}
+<!-- ----------our Course-------- -->
+
+<div class="types mt-5 " style="background-color:white">
+    <div class="wrapper">
+        <h1 class="heading1 mt-5">
+            <span>O</span>
+            <span>U</span>
+            <span>R</span>
+            <span class="space"></span>
+            <span>C</span>
+            <span>O</span>
+            <span>U</span>
+            <span>R</span>
+            <span>S</span>
+            <span>E</span>
+            <span>S</span>
+        </h1>
+        <div class="view_main mt-5">
+
+            <div class="view_wrap grid-view" >
+
+                {% for i in category_material %}
+                <div class="view_item">
+                    <div class="grid mt-3">
+                         <div class="vi_left">
+                            <p class="title" >{{i.category_Name}}</p>
+                        </div>
+                        <div class="vi_left">
+                            <img src="/{{i.category_Image}}" alt="Relevant Image">
+                        </div>
+
+                    </div>
+                    <div class="vi_right" style="height:200px">
+                        <div class="content-content mt-5">
+                            <p class="content" style="  text-align: justify; color:black">{{i.category_Description | safe}}</p>
+                        </div>
+                        <hr>
+
+                        <div class="bottom-CE">
+                            <span class="btn"><a href="/materials/get_course_category/{{i.id}}"
+                                                 style="text-decoration:none; color:white"> Explore</a></span>
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock main_content %}

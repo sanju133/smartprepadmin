@@ -1,0 +1,1164 @@
+<style>
+
+.content-detail{
+height:76px;
+overflow:hidden;
+margin-bottom:2%;
+}
+
+.content-p
+{overflow:hidden;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-line-clamp:5
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+
+
+
+.news-wrap {
+	width: 100%;
+	padding: 30px 0;
+}
+
+.news-grid {
+	width: auto;
+	position: relative;
+	background: #fff;
+	border-radius: 5px;
+	overflow: hidden;
+	border: 1px solid #ddd;	/*box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);*/
+	margin: 10px;
+}
+
+.news-grid-image {
+	width: 100%;
+	height: 280px;
+	overflow: hidden;
+}
+
+.news-grid-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: .5s;
+}
+
+.news-grid-box {
+	display: block;
+	position: absolute;
+	text-align: center;
+	background:#30649C;
+	left: -80px;
+	top: 15px;
+	padding: 10px;
+	transition: .5s;
+}
+
+.news-grid-box h2 {
+	color: #fff;
+	font-size: 30px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid rgba(255, 255, 255, .3);
+	margin-bottom: 5px;
+}
+
+.news-grid-box p {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 0px;
+
+	}
+
+.news-grid-txt {
+	padding: 25px;
+}
+
+.news-grid-txt span {
+	color: #30649C;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+
+.news-grid-txt h2 {
+	color: #30649C;
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin: 10px 0px 5px 0px;
+	font-family: 'Oswald', sans-serif !important;
+}
+
+.news-grid-txt ul {
+	padding: 0;
+	margin: 0;
+}
+
+.news-grid-txt ul li {
+	list-style: none;
+	display: inline-block;
+	color: #999;
+	font-size: 14px;
+	font-weight: 300;
+	margin: 8px 10px 8px 0px;
+	letter-spacing: 1px;
+	font-family: 'Oswald', sans-serif !important;
+}
+
+.news-grid-txt ul li i {
+	color:#30649C;
+	font-size: 16px;
+	font-weight: 700;
+	margin-right: 5px;
+
+}
+
+.news-grid-txt p {
+	color: #222;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 170%;
+	letter-spacing: 1.5px;
+	padding-bottom: 15px;
+
+	margin-bottom: 25px;
+	font-family: 'Oswald', sans-serif !important;
+}
+
+.news-grid-txt a {
+font-family: 'Oswald', sans-serif !important;
+	color: #fff;
+	background:#30649C;
+	padding: 8px 30px;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 30px;
+	letter-spacing: 1px;
+	text-decoration-line: none;
+	transition: .5s;
+}
+
+/*Hover-Section*/
+.news-grid:hover .news-grid-box {
+	left: 15px;
+	transition: .5s;
+}
+
+.news-grid:hover .news-grid-image img {
+	filter: grayscale(1);
+	transform: scale(1.1);
+	transition: .5s;
+}
+
+.news-grid:hover .news-grid-txt a {
+	text-decoration-line: none;
+	color: #fff;
+	letter-spacing: 2px;
+	transition: .5s;
+}
+
+/*OWL*/
+.owl-controls .owl-buttons {
+	position: relative;
+}
+
+.owl-controls .owl-prev {
+	position: absolute;
+	left: -40px;
+	bottom: 230px;
+	padding: 8px 17px;
+	background: #30649C;
+	border-radius: 50px;
+	transition: .5s;
+}
+
+.owl-controls .owl-next {
+	position: absolute;
+	right: -40px;
+	bottom: 230px;
+	padding: 8px 17px;
+	background: #30649C;
+	border-radius: 50px;
+	transition: .5s;
+}
+
+.owl-controls .owl-prev:after, .owl-controls .owl-next:after {
+	content: '\f104';
+	font-family: FontAwesome;
+	color: #fff;
+	font-size: 16px;
+}
+
+.owl-controls .owl-next:after {
+	content: '\f105';
+}
+
+.owl-controls .owl-prev:hover, .owl-controls .owl-next:hover {
+	background: #000;
+}
+
+
+<!--css for category-->
+  .category_main{
+	width:60%;
+<!--	min-height: 2000px;-->
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+
+}
+.category_service{
+    width:80%;
+    height:65%;
+    margin-top:20%;
+	background-color:#fff;
+	padding: 30px;
+	border-radius: 10px;
+<!--	position: absolute;-->
+	bottom: 0;
+    z-index:1;
+    box-shadow: 0 0 20px -15px #030380;
+    transition: transform .8s;
+}
+.category_logo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    margin:-90px auto 0;
+    background:#F3F5F6;
+    border:18px solid #F3F5F6;
+
+}
+.category_logo img{
+    width:97px;
+    height:97px;
+    border-radius:50%;
+
+    transition: transform 1s;
+}
+.categorytext h4 {
+	color: #30649C;
+	font-size: 25px;
+	text-align:center;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin: 10px 0px 5px 0px;
+	font-family: 'Oswald', sans-serif !important;
+}
+.categorytext p {
+    margin-top:10%;
+	color: #222;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 170%;
+	letter-spacing: 1.5px;
+	padding-bottom: 15px;
+
+	font-family: 'Oswald', sans-serif !important;
+}
+
+.shadowOne{
+    height:200px;
+    width:80%;
+    background:#F3F5F6;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 0;
+    left:10%;
+    z-index:-1;
+     box-shadow: 0px 2px 18px 0px rgb(0 0 0 / 30%);
+    transition: transform .8s;
+}
+.shadowTwo{
+    height:200px;
+    width:64%;
+    background:#F3F5F6 ;
+    position: absolute;
+    border-radius: 10px;
+     box-shadow: 0px 2px 18px 0px rgb(0 0 0 / 30%);
+    bottom: 0;
+    left:18%;
+    z-index:-2;
+}
+.category_main:hover .category_service{
+    transform: translateY(-50px);
+
+}
+.category_main:hover .shadowOne{
+    transform: translateY(-25px);
+
+}
+.category_main:hover img{
+    transform: rotate(360deg)
+
+}
+
+<!--------------------learning method -------------->
+.learning_method {
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+}
+
+.learning_method img {
+	width: 100%;
+	height: 44%;
+	object-fit: cover;
+	transition: .5s;
+}
+.instructor{
+
+
+	height: 80vh;
+	width: 100%;
+	position: relative;
+
+}
+.learning_method-txt h3 {
+	color: #30649C;
+	font-size: 30px;
+	text-align:center;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin: 10px 0px 5px 0px;
+	font-family: 'Oswald', sans-serif !important;
+}
+.learning_method-txt p {
+    margin-top:5%;
+	color: #222;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 170%;
+	letter-spacing: 1.5px;
+	padding-bottom: 15px;
+
+	font-family: 'Oswald', sans-serif !important;
+}
+
+/* css for Team ----------Manisha*/
+:root {
+    --curve: 40;
+}
+
+.team h1{
+margin-top:5%;
+    font-size: 34px;
+	font-weight: 800;
+	text-align: center;
+	padding-top: 40px;
+	color: #30649C;
+}
+
+.teamcards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:1rem;
+    margin:4rem 5vw;
+    padding:0;
+    list-style: none;
+
+    }
+.teamcards .teamcard {
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid #000;
+    }
+.teamcard__image{
+    width:100%;
+    height:auto;
+}
+.teamcard__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: calc(var(--curve) * 1px);
+    background-color: #fff;
+    transform: translateY(100%);
+    transition: 0.2s ease-in-out;
+}
+.teamcard:hover .teamcard__overlay{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+}
+.teamcard__header{
+    position: relative;
+    display:flex;
+    align-items: center;
+    gap:2rem;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;
+    background-color: #fff;
+    padding:2em;
+    transform: translateY(-100%);
+    transition: 0.2s ease-in-out;
+    }
+
+
+.teamcard__arc{
+    width:5em;
+    height:5em;
+    position:absolute;
+    bottom:100%;
+    right:0;
+    z-index: 1;
+    }
+
+.teamcard__arc path{
+    fill:#fff;
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+
+}
+
+.teamcard:hover .teamcard__header{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    }
+
+.teamcard__thumb{
+    flex-shrink: 0;
+    width:3.125em;
+    height:3.125em;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    }
+.teamcard__title{
+    font-weight: bold;
+    font-size:1em;
+    margin:0 0 0.3em;
+    color: #304695;
+    }
+.teamcard__status{
+    font-size:1 em;
+    color:rgb(49, 45, 45);
+    }
+.teamcard__description{
+    padding:0 2em 2em;
+    margin:0;
+    color: #304695;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    }
+<!--about-->
+.aboutush{
+    width:90%;
+
+
+    text-align:center;
+    padding-top:70px;
+
+
+
+}
+.rowh{
+    margin-top:2%;
+    display:flex;
+    justify-content:space-between;
+    margin-left:5%;
+    margin-right:10%;
+
+}
+.about-colh{
+    flex-basis:60%;
+    padding:30px 2px;
+    text-align: left;
+    margin:10px;
+}
+.about-colh h4{
+    font-size: 45px;
+    font-family:'Raleway', sans-serif;
+    font-weight: 600;
+    color:#30649C;
+}
+.about-colh p{
+    font-size: 16px;
+    line-height: 28px;
+
+    letter-spacing: .4px;
+    color: #707070;
+
+}
+.about-perh{
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+
+}
+.row1{
+    padding:20px;
+
+}
+.row2 i{
+    font-size: 35px;
+    color:#30649C;
+
+}
+.mt-2h{
+    font-size: 25px;
+    font-weight: 400;
+    color:#30649C;
+}
+
+</style>
+
+
+
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title> Homepage</title>
+{% endblock title %}
+{% block main_content %}
+
+ Video play and content
+ Video Source
+ https://www.pexels.com/video/aerial-view-of-beautiful-resort-2169880/
+<div class="showcase">
+    <video src="{% static 'video/video.mp4' %}" muted loop autoplay></video>
+    <div class="overlay"></div>
+    <div class="text">
+        <h2>Never Stop To </h2>
+        <h3>Exploring The World</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+        <a href="#">Explore</a>
+    </div>
+</div>
+
+</div>
+<div class="instructor mt-5">
+     <section class="aboutush" id="aboutus">
+        <div class="rowh">
+            <div class="about-colh">
+                <img src="{% static 'images/startnow.gif' %}" alt="" width="90%">
+
+            </div>
+
+
+            <div class="about-colh">
+
+                <h4>Get Ready to Know and grow your skill</h4><br>
+                <p>Orci urna. In et augue ornare, tempor massa in, luctus sapien. Proin a diam et dui fermentum dolor molestie vel id neque. Donec sed tempus enim,
+                    a congue risus. Pellen tesqu.dolor molestie vel id neque. Donec sed tempus enim,
+                    a congue risus. Pellen tesqu.</p>
+
+
+
+                <div class="about-perh">
+                    <div class="row1">
+                            <div class="row2">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+
+                            </div><br>
+
+                            <div class="row3">
+                                <h3 class="mt-2h">Our mission</h3><br>
+                                <p  class="mt-3h">In a diam et dui elit, orci urna vel id neque. </p>
+                            </div>
+
+
+                    </div>
+
+                    <div class="row1">
+                        <div class="row2">
+                            <i class="fa fa-angellist"></i>
+
+                        </div><br>
+
+
+                            <div class="row3">
+                                <h3 class="mt-2h">Our Vision</h3><br>
+                                <p  class="mt-3h">Et dui elit, orci urnavel id neque.</p>
+                            </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+</div>
+
+
+
+
+<!-- Top Categories of courses-->
+<div class="categories mt-5" >
+    <h1 class="mt-5">Browse Courses By Top Categories</h1>
+    <span class="section-separator"></span>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="category_main">
+                    <div class="category_service">
+                        <div class="category_logo">
+                            <img src="{% static 'images/engineer.jpg' %}" alt="">
+
+                        </div>
+                        <div class="categorytext">
+                            <h4>Web development</h4>
+                        <p>Lorem ipsumex necessitatibus error ducimus, ullam sit?error ducimus, ullam sit?,</p>
+
+
+                        </div>
+
+                    </div>
+                    <div class="shadowOne1"></div>
+                    <div class="shadowTwo2"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4">
+                <div class="category_main">
+                    <div class="category_service">
+                        <div class="category_logo">
+                            <img src="{% static 'images/codingimage.jpg' %}" alt="">
+
+                        </div>
+                        <div class="categorytext">
+                            <h4>Web development</h4>
+                        <p>Lorem ipsumex necessitatibus error ducimus, ullam sit?error ducimus, ullam sit?,</p>
+
+
+                        </div>
+                    </div>
+                    <div class="shadowOne"></div>
+                    <div class="shadowTwo"></div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="category_main">
+                    <div class="category_service">
+                        <div class="category_logo">
+                            <img src="{% static 'images/medical1.jpg' %}" alt="">
+
+                        </div>
+                       <div class="categorytext">
+                            <h4>Web development</h4>
+                        <p>Lorem ipsumex necessitatibus error ducimus, ullam sit?error ducimus, ullam sit?,</p>
+
+
+                        </div>
+                    </div>
+                    <div class="shadowOne"></div>
+                    <div class="shadowTwo"></div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+<!-- Our Popular Courses -->
+
+<div class="courses mt-5 p-5">
+    <h1>Some Popular Courses</h1>
+
+
+    <span class="section-separator"></span>
+
+    <section class="body">
+        <div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div id="news-slider" class="owl-carousel">
+						<!-- 1 -->
+						<div class="news-grid">
+							<div class="news-grid-image"><img src="{% static 'images/engineer2.gif' %}" alt="">
+								<div class="news-grid-box">
+									<h2>19</h2>
+									<p>Sep</p>
+								</div></div>
+								<div class="news-grid-txt">
+
+
+									<h2>Heading Will Be Here</h2>
+									<ul>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i></i> Sep 19, 2020</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i></i> Admin</li>
+									</ul>
+									<div class='content-detail' >
+										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											 voluptas amet quasi dicta consectetur.
+											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											  voluptas amet quasi dicta consectetur</p>
+
+									</div>
+
+
+									<a class="mt-5" href="#">Read More...</a>
+								</div>
+							</div>
+							<!-- 2 -->
+
+                        <div class="news-grid">
+							<div class="news-grid-image"><img src="{% static 'images/music2.gif' %}" alt="">
+								<div class="news-grid-box">
+									<h2>19</h2>
+									<p>Sep</p>
+								</div></div>
+								<div class="news-grid-txt">
+
+
+									<h2>Heading Will Be Here</h2>
+									<ul>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i> Sep 19, 2020</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i> Admin</li>
+									</ul>
+									<div class='content-detail' >
+										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											 voluptas amet quasi dicta consectetur.
+											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											  voluptas amet quasi dicta consectetur</p>
+
+									</div>
+
+
+									<a class="mt-5" href="#">Read More...</a>
+								</div>
+							</div>
+
+								<!-- 3 -->
+                    <div class="news-grid">
+							<div class="news-grid-image"><img src="{% static 'images/cooking.gif' %}" alt="">
+								<div class="news-grid-box">
+									<h2>19</h2>
+									<p>Sep</p>
+								</div></div>
+								<div class="news-grid-txt">
+
+
+									<h2>Heading Will Be Here</h2>
+									<ul>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i> Sep 19, 2020</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i> Admin</li>
+									</ul>
+									<div class='content-detail' >
+										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											 voluptas amet quasi dicta consectetur.
+											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											  voluptas amet quasi dicta consectetur</p>
+
+									</div>
+
+
+									<a class="mt-5" href="#">Read More...</a>
+								</div>
+							</div>
+
+									<!-- 4 -->
+
+                        <div class="news-grid">
+							<div class="news-grid-image"><img src="{% static 'images/3.gif' %}" alt="">
+								<div class="news-grid-box">
+									<h2>19</h2>
+									<p>Sep</p>
+								</div></div>
+								<div class="news-grid-txt">
+
+
+									<h2>Heading Will Be Here</h2>
+									<ul>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i> Sep 19, 2020</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i> Admin</li>
+									</ul>
+									<div class='content-detail' >
+										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											 voluptas amet quasi dicta consectetur.
+											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
+											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
+											  voluptas amet quasi dicta consectetur</p>
+
+									</div>
+
+
+									<a class="mt-5" href="#">Read More...</a>
+								</div>
+							</div>
+
+
+										<!-- 5 -->
+
+											<!-- 6 -->
+
+												<!-- 7 -->
+
+													<!-- 8 -->
+
+														<!-- 9 -->
+
+															<!-- 10 -->
+
+														</div>
+													</div>
+												</div>
+
+
+    </section>
+
+
+</div>
+
+<!-- Learning Methods -->
+<div class="container-fluid text-center mt-5 ">
+    <div class="learning">
+        <h1>Learning Methods</h1>
+        <span class="section-separator"></span>
+        <div class="method">
+            <div class="row mt-5">
+                <div class="col-md-3 ">
+                    <div class="learning_method">
+                        <img src="{% static 'images/online_learning.gif' %}">
+
+                    </div>
+
+                    <hr>
+                    <div class="learning_method-txt">
+                        <h3>Online Learning</h3>
+                    <p>Online learning known as E-learning is<br/>
+                        completely virtual class. It provides<br/>
+                        affordable classes for Entrance.<br/>
+                    </p>
+
+                    </div>
+
+
+                </div>
+                <div class="col-md-3 ">
+                    <div class="learning_method">
+                        <img src="{% static 'images/micro-learning.gif' %}">
+
+
+                    </div>
+
+                    <hr>
+                    <div class="learning_method-txt">
+                       <h3>Micro-learning</h3>
+                    <p>Smartprep allows you to take test for <br/>
+                        more effectivness and numerous quiz <br/>
+                        question will be available for weekly. </p>
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 ">
+                    <div class="learning_method">
+                        <img src="{% static 'images/video_learning.gif' %}">
+
+
+                    </div>
+                    <hr>
+                    <div class="learning_method-txt">
+                        <h3>Video Learning</h3>
+                    <p>Video learning provide better and <br/>
+                        deeper learning experience. It allows <br/>
+                        learner to remember and absorbs  </p>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!--Teachers Detail  -->
+<div class="instructor mt-5">
+    <h1>Meet Our Instructor</h1>
+    <span class="section-separator"></span>
+
+    <div class="teachers">
+        <div class="indicator">
+            <span class="butn active"></span>
+            <span class="butn"></span>
+            <span class="butn"></span>
+            <span class="butn"></span>
+        </div>
+        <div class="teacherDetail">
+            <div class="slide-row" id="slide">
+                <div class="slide-col">
+                    <div class="teacher-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, inventore consequatur delectus
+                            ad aut a harum rem optio doloremque quod, necessitatibus unde ratione eum numquam
+                            architecto, ducimus dignissimos modi. Praesentium!</p>
+                        <h3>Manisha</h3>
+                        <p>Science</p>
+                    </div>
+                    <div class="teacher-img">
+                        <img src="{% static 'images/hero1.jpg' %}">
+                    </div>
+                </div>
+                <div class="slide-col">
+                    <div class="teacher-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, inventore consequatur delectus
+                            ad aut a harum rem optio doloremque quod, necessitatibus unde ratione eum numquam
+                            architecto, ducimus dignissimos modi. Praesentium!</p>
+                        <h3>Manisha</h3>
+                        <p>Science</p>
+                    </div>
+                    <div class="teacher-img">
+                        <img src="{% static 'images/hero3.jpg' %}">
+                    </div>
+                </div>
+                <div class="slide-col">
+                    <div class="teacher-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, inventore consequatur delectus
+                            ad aut a harum rem optio doloremque quod, necessitatibus unde ratione eum numquam
+                            architecto, ducimus dignissimos modi. Praesentium!</p>
+                        <h3>Manisha</h3>
+                        <p>Science</p>
+                    </div>
+                    <div class="teacher-img">
+                        <img src="{% static 'images/hero1.jpg' %}">
+                    </div>
+                </div>
+                <div class="slide-col">
+                    <div class="teacher-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, inventore consequatur delectus
+                            ad aut a harum rem optio doloremque quod, necessitatibus unde ratione eum numquam
+                            architecto, ducimus dignissimos modi. Praesentium!</p>
+                        <h3>Manisha</h3>
+                        <p>Science</p>
+                    </div>
+                    <div class="teacher-img">
+                        <img src="{% static 'images/hero3.jpg' %}">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- The team -->
+
+<!--    <div class="teamcontainer">-->
+<!--    <div class="team mt-3">-->
+<!--        <h1>Our Team Member</h1>-->
+<!--        <span class="section-separator"></span>-->
+<!--    </div>-->
+<!--    <ul class="teamcards ">-->
+<!--        <li>-->
+<!--            <a href="#" class="teamcard">-->
+<!--                <img src="{% static 'images/hero2.jpg' %}" class="teamcard__image" alt="">-->
+<!--                <div class="teamcard__overlay">-->
+<!--                    <div class="teamcard__header">-->
+<!--                        <svg class="teamcard__arc" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path/>-->
+<!--                        </svg>-->
+<!--                        <img src="{% static 'images/ishan.png' %}" alt="" class="teamcard__thumb">-->
+<!--                        <div class="teamcard__header-text">-->
+<!--                            <h3 class="teamcard__title">Ishan Basnet</h3>-->
+<!--                            <span class="teamcard__status">Leader</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <p class="teamcard__description">I am a Leader of this group and my main work is preparing documentation.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" class="teamcard">-->
+<!--                <img src="{% static 'images/hero3.jpg' %}" class="teamcard__image" alt="">-->
+<!--                <div class="teamcard__overlay">-->
+<!--                    <div class="teamcard__header">-->
+<!--                        <svg class="teamcard__arc" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path/>-->
+<!--                        </svg>-->
+<!--                        <img src="{% static 'images/richa.png' %}" alt="" class="teamcard__thumb">-->
+<!--                        <div class="teamcard__header-text">-->
+<!--                            <h3 class="teamcard__title">Sanju Maharjan</h3>-->
+<!--                            <span class="teamcard__status">Main Designer</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <p class="teamcard__description">I am Frontend developer and main designer of this group.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" class="teamcard">-->
+<!--                <img src="{% static 'images/hero1.jpg' %}" class="teamcard__image" alt="">-->
+<!--                <div class="teamcard__overlay">-->
+<!--                    <div class="teamcard__header">-->
+<!--                        <svg class="teamcard__arc" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path/>-->
+<!--                        </svg>-->
+<!--                        <img src="{% static 'images/manisha.png' %}" alt="" class="teamcard__thumb">-->
+<!--                        <div class="teamcard__header-text">-->
+<!--                            <h3 class="teamcard__title">Manisha Basukala</h3>-->
+<!--                            <span class="teamcard__status">Developer</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <p class="teamcard__description">I am frontend developer and second designer-->
+<!--                        of this group.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" class="teamcard">-->
+<!--                <img src="{% static 'images/hero2.jpg' %}" class="teamcard__image" alt="">-->
+<!--                <div class="teamcard__overlay">-->
+<!--                    <div class="teamcard__header">-->
+<!--                        <svg class="teamcard__arc" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path/>-->
+<!--                        </svg>-->
+<!--                        <img src="{% static 'images/ruby.png' %}" alt="" class="teamcard__thumb">-->
+<!--                        <div class="teamcard__header-text">-->
+<!--                            <h3 class="teamcard__title">Ruby Kakshapati</h3>-->
+<!--                            <span class="teamcard__status">Figma designer</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <p class="teamcard__description">My name is Ruby kakshapati. I design the website in Figma </p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" class="teamcard">-->
+<!--                <img src="{% static 'images/hero2.jpg' %}" class="teamcard__image" alt="">-->
+<!--                <div class="teamcard__overlay">-->
+<!--                    <div class="teamcard__header">-->
+<!--                        <svg class="teamcard__arc" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path/>-->
+<!--                        </svg>-->
+<!--                        <img src="{% static 'images/richa.png' %}" alt="" class="teamcard__thumb">-->
+<!--                        <div class="teamcard__header-text">-->
+<!--                            <h3 class="teamcard__title">Richa Pokheral</h3>-->
+<!--                            <span class="teamcard__status">Backend Developer</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <p class="teamcard__description">My name is Richa Pokheral. I work with database and I am backend-->
+<!--                        developer.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--    </ul>-->
+
+<!--</div>-->
+
+
+<!--</div>-->
+
+
+
+<script>
+
+
+
+var butn = document.getElementsByClassName('butn');
+var slide = document.getElementById("slide")
+
+butn[0].onclick = function(){
+    slide.style.transform = "translateX(0px)";
+    for(i=0;i<4;i++){
+        butn[i].classList.remove("active1");
+    }
+    this.classList.add("active1");
+}
+butn[1].onclick = function(){
+    sl
+    ide.style.transform = "translateX(-800px)";
+    for(i=0;i<4;i++){
+        butn[i].classList.remove("active1");
+    }
+    this.classList.add("active1");
+}
+butn[2].onclick = function(){
+    slide.style.transform = "translateX(-1600px)";
+    for(i=0;i<4;i++){
+        butn[i].classList.remove("active1");
+    }
+    this.classList.add("active1");
+}
+butn[3].onclick = function(){
+    slide.style.transform = "translateX(-2400px)";
+    for(i=0;i<4;i++){
+        butn[i].classList.remove("active1");
+    }
+    this.classList.add("active1");
+}
+</script>
+
+
+<script type="text/javascript">
+													$(document).ready(function(){
+														$("#news-slider").owlCarousel({
+															items:3,
+															navigation:true,
+															navigationText:["",""],
+															autoPlay:true
+														});
+													});
+												</script>
+
+{% endblock main_content %}

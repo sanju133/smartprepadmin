@@ -1,0 +1,165 @@
+week1.html
+Who has access
+
+System properties
+Type
+HTML
+Size
+6 KB
+Storage used
+6 KB
+Location
+materials
+Owner
+Manisha Basukala
+Modified
+1:57 am by Manisha Basukala
+Opened
+12:32 pm by me
+Created
+10:29 am
+No description
+Viewers can download
+<style>
+.maincard{
+    display: flex;
+    justify-content:center;
+
+  }
+.contentwrapper{
+width: 1300px;
+height: 100vh;
+margin: 30px auto;
+padding: 20px;
+border-radius: 5px;
+}
+.contentwrapper .radio_tabs{
+height: 60px;
+background: #30649C;
+margin-bottom: 10px;
+border-radius: 5px;
+font-size: 20px;
+padding: 18px;
+display: flex;
+box-shadow: 0 0 2px rgba(0,0,0,0.1);
+
+}
+
+.contentwrapper .radio_tabs label{
+color:white;
+margin-right: 15px;
+display: block;
+position: relative;
+cursor: pointer;
+padding-left: 28px;
+}
+
+.contentwrapper .radio_tabs .radio_mark:before{
+content: "";
+position: absolute;
+top: 2px;
+left: 0;
+background: url("radio_icon.png") no-repeat 0 0;
+width: 22px;
+height: 22px;
+}
+
+.contentwrapper .radio_tabs label .input{
+position: absolute;
+top: 0;
+right: 0;
+opacity: 0;
+}
+
+.contentwrapper .radio_tabs label .input:checked ~ .radio_mark{
+font-weight:bold;
+color:white;
+border-bottom: 3px solid white;
+}
+
+.contentwrapper .radio_tabs label .input:checked ~ .radio_mark:before{
+background-position: 0 -23px;
+width: 22px;
+height: 22px;
+}
+
+.contentwrapper .content p{
+font-size: 15px;
+line-height: 22px;
+margin-bottom: 15px;
+}
+
+</style>
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title> My Learning</title>
+{% endblock title %}
+{% block main_content %}
+
+<div class="maincard mt-5" >
+    <div class="contentwrapper">
+      <div class="radio_tabs">
+        <label class="radio_wrap" data-radio="radio_1">
+          <input type="radio" name="cont" class="input" checked>
+          <span class="radio_mark">
+            Current Lesson
+          </span>
+        </label>
+
+
+      </div>
+
+      <div class="content">
+        <div class="radio_content radio_1">
+          <div class="overview1 mt-3">
+            <h1>Introduction To Web Application</h1>
+            <p>A website is a collection of related material that contains text, images, and may also include video, audio or other media.
+                </br>
+                </br>
+                A website can be as simple as a few static pages or as complex as several web applications running simultaneously, and everything in between.</p>
+              <h4>Kinf of Website?</h4>
+            <p>Static: Static websites are ones that are fixed and display the same content for every user, usually written exclusively in HTML. This is the simplest form a website can take. Static websites usually come with a fixed number of pages that have a specific layout. When the page runs on a browser, the content is literally static and doesn’t change in response to user actions. A static website is usually created with HTML and CSS in simple text editors like Notepad.
+            Dynamic: Dynamic website is one that can display different content and provide user interaction, by making use of advanced programming and databases in addition to HTML. Compared to static websites, which are purely informational, a dynamic website is more functional. It allows users to interact with the information that is listed on the page. Of course, that requires utilizing more than just HTML code.
+
+
+            Searching the internet is second nature to most of us. Every day we consult countless websites to find information, but do we ever stop to ask what is a website and how does it really work?
+
+            Before we dive into technological terms, consider this: humans are kind of like websites. Humans have eyes, ears, legs, and arms while websites have text, images, videos, and buttons. On the surface, it’s pretty straightforward, but if you look deeper, humans and websites are both governed by a code. For humans, it’s our DNA. For websites, it’s HTML, which stands for Hypertext Markup Language.
+            This code uses tags to tell your web browser how to display the web page. In other words, HTML is a language that web browsers understand, interpret, and convert in order to display information that is understandable to human.
+            HTML files can then be uploaded to a web server, so any internet-connected computer with a web browser can find them.
+
+            Most websites use cascading style sheets (CSS) to ensure proper and comprehensive style throughout your website. CSS is an intuitive shortcut that allows developers to make a change to one page and then have the rest of the website update automatically.
+
+            Humans and websites both require a physical place to live. People live in houses and apartments; websites live on servers.
+            You probably pay rent or a mortgage on your place each month. And unless you’ve got your own server, you’ll need to rent a space for your website too. For a monthly fee, web hosting providers rent out space on their servers to host your website.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        /* by default hide all radio_content div elements except first element */
+        $(".content .radio_content").hide();
+        $(".content .radio_content:first-child").show();
+
+        /* when any radio element is clicked, Get the attribute value of that clicked radio element and show the radio_content div element which matches the attribute value and hide the remaining tab content div elements */
+        $(".radio_wrap").click(function(){
+          var current_raido = $(this).attr("data-radio");
+          $(".content .radio_content").hide();
+          $("."+current_raido).show();
+        })
+      });
+    </script>
+
+  </div>
+
+
+</div>
+
+
+
+
+{% endblock main_content %}

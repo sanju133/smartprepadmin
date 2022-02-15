@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!--layout for lecturer------------------------------------------------------------>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %}
+    {{ section.title }}
+    {% endblock title %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+<body style="background-color:">
+<button id="menu" type="button" class=" menu text-light m-2 p-1 px-3 border-rounded" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="background-color:#313335">
+  Menu
+</button>
+<div class="offcanvas firstt offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width:200px; background-color:#313335; color:white">
+  <div class="offcanvas-header">
+    <h4 class="m-0  text-light pb-3">SmartPrep</h4>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body secondd">
+
+      <ul class="list-unstyled" >
+          <li class="text-center">
+              <img  src=""  width="60" height="60" class="img-responsive mr-3 rounded-circle justify-content-center shadow-sm text-white">
+          </li>
+          <li class="pb-4 text-center" style="font-size:14px">Logged in as
+              {{request.user.username}}</li>
+        <p class="text-center pt-3">LECTURER DASHBOARD</p>
+          <li ><a href="#" class="dropdown-item text-light">Home</a></li>
+          <li><a href="#" class="dropdown-item text-white ">Category</a></li>
+           <li ><a href="/lecturer/get_course/" class="dropdown-item text-white ">Manage Course</a></li>
+        <li><a href="#" class="dropdown-item text-white  "> Manage Learner</a></li>
+        <li><a class="dropdown-item text-white " href="#" >Profile</a></li>
+         <li ><a class="dropdown-item text-white " href="#" >
+             Change Password</a></li>
+      <li ><a href="/logout" class="dropdown-item text-white">Logout</a></li>
+      </ul>
+
+  </div>
+</div>
+
+<div class="main">
+    {% block main_content %}
+
+    {% endblock main_content %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script>
+    $(function() {
+  $('#sidebarCollapse').on('click', function() {
+    $('#sidebar, #content').toggleClass('active');
+  });
+});
+
+</script>
+
+</body>
+</html>
+

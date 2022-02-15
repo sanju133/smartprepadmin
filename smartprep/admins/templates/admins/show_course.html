@@ -1,0 +1,158 @@
+{% extends 'admin-layout.html' %}
+{% load static %}
+{% block title %}
+<title>Show course</title>
+{% endblock %}
+{% block main_content %}
+<div class="main1" id="menu-toggle">
+            <div class="main2">
+                <div class="topbar">
+                    <div class="toogle1">
+                        <ion-icon name="menu-outline"></ion-icon>
+
+                    </div>
+                    <!-- search -->
+                    <div class="search">
+                        <label>
+                            <input type="text" placeholder="Search here">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
+                    </div>
+
+
+                    <!-----notification-->
+                    <div class="notification">
+                        <ion-icon name="notifications-outline"></ion-icon>
+
+                    </div>
+                    <!-- user img-->
+                    <div class="user">
+
+                        <img src = "{% static 'images/user.jpg' %}" alt = "" width="40px" height="40px">
+                        <div>
+                            <h4>Sanju Maharjan</h4>
+                        <p style="color:gray;">Admin</p>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        <!-- </div> -->
+        <!-- heading -->
+         <h1 style="margin:2%;" class="heading">Courses</h1>
+
+
+
+          <!-- courses-->
+<!--          <section class="home" style="background-image:url({% static 'images/show_course.jpg' %}) ">-->
+<!--              <div class="content">-->
+<!--                  <h3>Find Your <span>Courses !! </span></h3>-->
+<!--                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>-->
+<!--                       <a href="" class="btnn">View Details</a>-->
+<!--              </div>-->
+<!--          </section>-->
+
+          <!-- courses card -->
+          <div class="courses">
+            <div class="box-container">
+                <div class="box">
+                    <img src="{% static 'images/medical.jpg' %}" alt="">
+                    <div class="content">
+                        <div class="bicon">
+                          <p> Art/Carft</p>
+                          <a><i class="fa fa-usd" aria-hidden="true"></i></i>8,902</a><br>
+                        </div>
+                        <p class="detail">Become a professional be with passion and dignity</p><br>
+                        <a href="" class="Editcourse">Edit Course  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="{% static 'images/engineer.png' %}" alt="">
+                    <div class="content">
+                        <div class="bicon">
+                          <p> Development</p>
+                          <a><i class="fa fa-usd" aria-hidden="true"></i></i>8,902</a>
+                        </div>
+                        <p class="detail">Become a professional be with passion and dignity</p><br>
+                        <a href="detail" class="Editcourse">Edit Course  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="{% static 'images/computer.png' %}" alt="">
+                    <div class="content">
+                        <div class="bicon">
+                          <p> Computer Science</p>
+                          <a><i class="fa fa-usd" aria-hidden="true"></i></i>8,902</a>
+                        </div>
+                        <p class="detail">Become a professional be with passion and dignity</p><br>
+                       <a href="" class="Editcourse">Edit Course  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                 <div class="box">
+                    <img src="{% static 'images/medical.jpg' %}" alt="">
+                    <div class="content">
+                        <div class="bicon">
+                          <p> Computer Science</p>
+                          <a><i class="fa fa-usd" aria-hidden="true"></i></i>8,902</a>
+                        </div>
+                        <p class="detail">Become a professional be with passion and dignity</p><br>
+                       <a href="" class="Editcourse">Edit Course  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                 <div class="box">
+                    <img src="{% static 'images/computer.png' %}" alt="">
+                    <div class="content">
+                        <div class="bicon">
+                          <p> Computer Science</p>
+                          <a><i class="fa fa-usd" aria-hidden="true"></i></i>8,902</a>
+                        </div>
+                        <p class="detail">Become a professional be with passion and dignity</p><br>
+                       <a href="" class="Editcourse">Edit Course  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                 <div class="box">
+                    <img src="{% static 'images/engineer.png' %}" alt="">
+                    <div class="content">
+                        <div class="bicon">
+                          <p> Computer Science</p>
+                          <a><i class="fa fa-usd" aria-hidden="true"></i></i>8,902</a>
+                        </div>
+                        <p class="detail">Become a professional be with passion and dignity</p><br>
+                       <a href="" class="Editcourse">Edit Course  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+
+
+              </div>
+
+
+          </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+

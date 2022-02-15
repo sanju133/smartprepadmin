@@ -1,0 +1,78 @@
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+
+from django.contrib import messages
+
+
+from .forms import CreateUserForm, LoginForm
+from accounts.auth import unauthenticated_user
+
+
+def homepage(request):
+    return render(request, 'accounts/homepage.html')
+
+def loginpage(request):
+    return render(request,'accounts/login.html')
+
+# function for logout
+@login_required
+def logout_user(request):
+    logout(request)
+    return redirect('/login_page')
+
+
+@unauthenticated_user
+def register_user(request):
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            messages.add_message(request, messages.SUCCESS, "User registered successfully")
+            return redirect('/Login_page')
+        else:
+            messages.add_message(request, messages.ERROR, "Something went wrong")
+            return render(request, 'accounts/register_page.html', {'form_user':form})
+
+    context = {
+        'form_user': CreateUserForm,
+        'activate_register': 'active'
+    }
+    return render(request, 'accounts/register_page.html', context)
+
+
+
+@unauthenticated_user
+def login_page(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            user = authenticate(request, username=data['username'], password=data['password'])
+            print(user)
+            if user is not None:
+                if user.is_staff == 1 & user.is_superuser == 1:
+                    login(request, user)
+                    return redirect('/admins/dashboard')
+
+                elif user.is_staff == 0 & user.is_superuser == 0:
+                    login(request, user)
+                    return redirect('/materials/home')
+
+                elif not user.is_superuser == 0 & user.is_staff == 1:
+                    login(request, user)
+                    return redirect('/lecturer/lib_dashboard')
+
+            else:
+                messages.add_message(request, messages.ERROR, "Invalid data")
+                return render(request, 'accounts/login_page.html', {'form_login': form})
+    context = {
+        'form_login': LoginForm,
+        'activate_login': 'active'
+    }
+    return render(request, 'accounts/login_page.html', context)
+
+
+
+

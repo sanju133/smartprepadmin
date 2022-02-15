@@ -1,0 +1,181 @@
+courses.html
+Who has access
+
+System properties
+Type
+HTML
+Size
+5 KB
+Storage used
+5 KB
+Location
+materials
+Owner
+Manisha Basukala
+Modified
+10:09 am by Manisha Basukala
+Opened
+12:29 pm by me
+Created
+10:29 am
+No description
+Viewers can download
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>Course</title>
+{% endblock title %}
+
+{% block main_content %}
+
+
+<!-- ----------our Course-------- -->
+
+<div class="types mt-5  " style="background-color:white">
+
+
+    <div class="serch pt-2" style="position:fixed">
+        <div class="boxx" style="margin: auto;">
+            <a href="/materials/home/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            <!--            <i class="fa fa-search" aria-hidden="true"></i>-->
+
+            <!--            <input placeholder="" aria-label="Search" class="sc-irKDMX fyRspk"  align="center" name="searched" id="myButton" value="">-->
+            <form class="sc-irKDMX fyRspk" id="myButton" method="get">
+                {{user_course_filter.form | bootstrap_horizontal}} <a class="btn btn-sm  btn-primary" type="submit">Search</a>
+            </form>
+            <!--            <button class="btn" type="submit">Search</button>-->
+            <span style="padding-right:15px"><i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+            <span>
+                <a href="/materials/home/"><i class="fa fa-times" aria-hidden="true"></i></a></span>
+        </div>
+    </div>
+
+    <div class="wrapper pt-5">
+        <h1 class="heading1">
+            <span>O</span>
+            <span>U</span>
+            <span>R</span>
+            <span class="space"></span>
+            <span>C</span>
+            <span>O</span>
+            <span>U</span>
+            <span>R</span>
+            <span>S</span>
+            <span>E</span>
+            <span>S</span>
+        </h1>
+        <div class="links">
+            <ul>
+                <li data-view="grid-view" class="li-grid">
+                    <i class="fas fa-th-large"></i>
+
+                </li>
+
+                <li data-view="list-view" class="li-list active">
+                    <i class="fas fa-th-list"></i>
+
+                </li>
+            </ul>
+        </div>
+        <div class="view_main">
+            <div class="view_wrap grid-view" style="display: none;">
+
+                {% for i in course_material %}
+                <div class="view_item">
+
+                    <div class="grid mt-3">
+                        <div class="vi_left">
+                            <p class="title" style="text-overflow:ellipsis; overflow:hidden">{{i.course_Name}}</p>
+                        </div>
+                        <div class="vi_left">
+                            <img src="/{{i.course_Image}}" alt="img">
+                        </div>
+
+                    </div>
+                    <div class="vi_right" style="height:200px">
+                        <div class="content-content">
+                            <p class="content" style="  text-align: justify; color:black">
+                                {{i.course_Description}}</p>
+                        </div>
+                        <hr>
+                        <a href="/materials/details/{{i.id}}/">
+                            <button  class="btn">Explore</button>
+
+                        </a>
+                    </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="view_wrap list-view" style="display: block;">
+
+                    {% for i in course_material %}
+                    <div class="view_item">
+                        <div class="vi_left">
+                            <img src="/{{i.course_Image}}" alt="Relevant Image">
+                        </div>
+                        <div class="vi_right">
+                            <p class="title">{{i.course_Name}}</p>
+                            <p class="content">
+                                {{i.course_Description}}</p>
+                            <a href="/materials/details/{{i.id}}/">
+                            <button  class="btn">Explore</button>
+
+                        </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var li_links = document.querySelectorAll(".links ul li");
+        var view_wraps = document.querySelectorAll(".view_wrap");
+        var list_view = document.querySelector(".list-view");
+        var grid_view = document.querySelector(".grid-view");
+
+        li_links.forEach(function(link){
+            link.addEventListener("click", function(){
+                li_links.forEach(function(link){
+                    link.classList.remove("active");
+                })
+
+                link.classList.add("active");
+
+                var li_view = link.getAttribute("data-view");
+
+                view_wraps.forEach(function(view){
+                    view.style.display = "none";
+                })
+
+                if(li_view == "list-view"){
+                    list_view.style.display = "block";
+                }
+                else{
+                    grid_view.style.display = "block";
+                }
+            })
+        })
+
+
+    </script>
+
+    <script>
+    const inpText=document.getElementById("id_course_name_contain");
+    setTimeout(()=>{
+    inpText.focus();
+        }, 0);
+
+
+
+    </script>
+
+
+    {% endblock main_content %}

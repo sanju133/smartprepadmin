@@ -1,0 +1,99 @@
+
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>Cart</title>
+{% endblock title %}
+
+{% block main_content %}
+<section class="">
+
+    <div class="container" >
+         <div class="row">
+			 <div class="shoppingcart mt-5">
+				 <h1 class="mt-5">Shopping Cart</h1>
+
+
+			 </div>
+
+			 <h5>{{order.get_cart_items}} Courses in Cart</h5>
+
+
+			  <div class="col-lg-9 ">
+
+			<div class="box-element ">
+<!--				<div class="cart-row1">-->
+
+<!--					<div style="flex:4"><strong>  Course</strong></div>-->
+<!--					<div style="flex:1"><strong>Quantity</strong></div>-->
+<!--					<div style="flex:1"><strong>Total</strong></div>-->
+<!--				</div>-->
+				{% for item in items %}
+
+				<div class="cart-row">
+					<div style="flex:1"><img class="row-image" src="/{{item.product.course_Image}}"></div>
+					<div style="flex:4; font-weight:500;"><p><strong>{{item.product.course_Name}}</strong></p>
+						<div class="head">
+							<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>  &nbsp;4.9 &nbsp; 76,209 ratings
+
+						</div>
+
+					</div>
+
+					<div style="flex:1" class="remove">
+<!--						<p class="quantity">{{item.quantity}}</p>-->
+						<div data-i="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" style="flex:1"><p>Remove</p>
+
+
+					   </div>
+						<p>Save for later</p>
+
+<!--						<div class="quantity">-->
+<!--							<img data-i="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">-->
+
+<!--							<img data-i="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">-->
+<!--						</div>-->
+					</div>
+					<div style="flex:1; color:#30649C; font-size:18px;"><p>${{item.get_total}}  <i class="fa fa-tag" aria-hidden="true"></i></p></div>
+				</div>
+             {% endfor %}
+			</div>
+		</div>
+
+		<div class="col-lg-3 ">
+			<div class="box-element">
+<!--				<div class="cart-row">-->
+<!--					<a href="/materials/courses/" class="btn btn-outline-dark" href="">&#x2190; Course</a>-->
+
+<!--				<br>-->
+<!--				<br>-->
+
+<!--				</div>-->
+
+
+
+
+						<h5>Total:
+							</h5>
+					<h1 style="color:#30649C;font-size:50px;"><strong> ${{order.get_cart_total}}</strong></h1>
+
+						<a  style="margin:5px; background:#30649C; color:white; width:100%; font-size:20px;" class="btn" href="/materials/checkout/">Checkout</a>
+
+
+
+
+			</div>
+
+		</div>
+
+	</div>
+    </div>
+</section>
+
+{% endblock main_content %}
