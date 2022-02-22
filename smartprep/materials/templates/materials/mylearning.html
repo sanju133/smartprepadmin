@@ -112,14 +112,11 @@ display:-webkit-box;
         <span>G</span>
 
     </h1>
-              {% for file in detail %}
 
     <div class="body13">
-
-
         <div class="container13">
+             {% for file in detail %}
          <div class="card1">
-
         <div class="card-header1">
         <img src="/{{file.image}}" alt="rover" />
         </div>
@@ -136,16 +133,17 @@ display:-webkit-box;
 
 
     </div>
+
   </div>
 
 
 
+   {% endfor %}
 
     </div>
 
-
     </div>
-                    {% endfor %}
+
 
 
 {% endblock main_content %}
