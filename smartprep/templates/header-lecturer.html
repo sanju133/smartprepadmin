@@ -22,14 +22,16 @@
   </nav>
 <div class="offcanvas offcanvas-start bg-secondary" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Admin Dashboard</h5>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Instructor Dashboard</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
 
     <div class="offcanvas-body ">
         <ul class="list-unstyled">
-            <li><a class="dropdown-item {{activate_dashboard}}" href="/admins/dashboard/"><i class="fa fa-line-chart" aria-hidden="true"></i> Dashboard</a></li>
+            <li><a class="dropdown-item " href="/lecturer/lecturerDashboard/"><i class="fa fa-line-chart" aria-hidden="true"></i> Dashboard</a></li>
             <li><a class="dropdown-item {{activate_category_admin}}" href="/admins/get_category/ "><i class="fa fa-book" aria-hidden="true"></i> Categories</a></li>
+            <li><a class="dropdown-item " href="/lecturer/get_course/ "><i class="fa fa-book" aria-hidden="true"></i> Courses</a></li>
+
             <li><a class="dropdown-item {{activate_payment_admin}}" href="/admins/orderhistory/"><i class="fa fa-first-order" aria-hidden="true"></i> Orders Details</a></li>
             <li><a class="dropdown-item " href="/admins/show_contact/"><i class="fa fa-phone" aria-hidden="true"></i>Contact</a></li>
                         <li><a class="dropdown-item {{activate_user}}" href="/admins/users/"><i class="fa fa-users" aria-hidden="true"></i>Users</a></li>

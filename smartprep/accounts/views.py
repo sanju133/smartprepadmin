@@ -11,7 +11,7 @@ from django.http import HttpResponse, Http404, JsonResponse
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Profiles
 from materials.models import Order
-from .forms import ProfileForm
+from .forms import ProfileForm, ContactForm
 from .models import *
 
 from .forms import CreateUserForm, LoginForm
@@ -43,7 +43,28 @@ def homepage(request):
         }
     return render(request, 'accounts/homepage.html',context)
 
+
+
 def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST, request.FILES)
+        if form.is_valid():
+            firstname = request.POST.get('firstname')
+            lastname = request.POST.get('lastname')
+            phone = request.POST.get('phone')
+            message = request.POST.get('message')
+            message_send = Contact.objects.create(firstname=firstname,
+                                                  lastname=lastname,
+                                                  phone=phone,
+                                                  message=message,
+                                                  status="Mark as read")
+            if message_send:
+                messages.add_message(request, messages.SUCCESS, 'Your message has been sent')
+
+                return redirect("/contact")
+        else:
+            messages.add_message(request, messages.ERROR, 'Please try again')
+            return render(request, 'accounts/contact.html', {'form_contact': form})
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -59,6 +80,7 @@ def contact(request):
         'cartItems': cartItems,
         'items': items,
         'order': order,
+        'form_contact': ContactForm,
 
     }
 

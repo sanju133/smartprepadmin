@@ -22,10 +22,17 @@ class UserOTP(models.Model):
 
 
 class Contact(models.Model):
-    firstname= models.CharField(max_length=50,null=True,validators=[validators.MinLengthValidator(2)])
-    lastname=models.CharField(max_length=50, null=True, validators=[validators.MinLengthValidator(2)])
+    STATUS = (
+        ('Mark as read', 'Seen'),
+
+    )
+    firstname = models.CharField(max_length=50, null=True, validators=[validators.MinLengthValidator(2)])
+    lastname = models.CharField(max_length=50, null=True, validators=[validators.MinLengthValidator(2)])
     email = models.EmailField()
     phone = models.CharField(max_length=10)
-    message=models.TextField()
+    message = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True, null=True)
+    status = models.CharField(max_length=100, null=True, default='Mark as read')
+
     def __str__(self):
         return self.firstname

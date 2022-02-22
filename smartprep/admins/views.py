@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+import os
 
 # Create your views here.
 from accounts.auth import admin_only
@@ -78,7 +79,6 @@ def get_category(request):
     return render(request, 'admins/get_category.html', context)
 
 
-
 #deleting category
 @login_required
 @admin_only
@@ -88,56 +88,47 @@ def delete_category(request, categories_id):
     messages.add_message(request, messages.SUCCESS, 'Category Deleted!')
     return redirect('/admins/get_category/')
 
+
+
+# update category
+def category_update_form(request, categories_id):
+    category = Categories.objects.get(id=categories_id)
+    if request.method == "POST":
+        if request.FILES.get('categories_Image'):
+            os.remove(category.categories_Image.path)
+        form = CategoriesForm(request.POST, request.FILES, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Category updated successfully')
+            return redirect("/admins/get_category/")
+        else:
+            messages.add_message(request, messages.ERROR, 'Unable to update')
+            return render(request, 'admins/category_update_form.html', {'form_category_update':category})
+    context ={
+        'form_category_update': CategoriesForm(instance=category),
+        'activate_category':'active'
+    }
+    return render(request, 'admins/category_update_form.html', context)
+
+# retrieving contact
+def show_contact(request):
+    contact=Contact.objects.filter(status='Mark as read').order_by('-created_date')
+
+    context={
+        'contact_admin':contact,
+        'activate_contact':'active_admin'
+    }
+    return render(request, 'admins/show_contact.html', context)
+
 #
 #
-# # Courses Form
-# def courses_form(request):
-#     if request.method=='POST':
-#         form=CoursesForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             messages.add_message(request,messages.SUCCESS, 'Course added successfully!')
-#             return redirect('/admins/get_course/')
-#         else:
-#             messages.add_message(request, messages.ERROR, 'Unable to add the Course')
-#             return render(request,'admins/course_form.html', {'form_course':form})
-#     context ={
-#         'form_course': CoursesForm,
-#     }
-#     return render(request, 'admins/course_form.html', context)
-#
-# # retrieving course
-# def get_course(request):
-#     course=Courses.objects.all().order_by('-id')
-#     context={
-#         'course':course,
-#     }
-#     return render(request, 'admins/get_course.html', context)
-#
-# #lectures Form
-# def lectures_form(request):
-#     if request.method=="POST":
-#         form=LecturesForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             messages.add_message(request,messages.SUCCESS,'Lecture added successfully')
-#             return redirect('/admins/get_lecture/')
-#         else:
-#             messages.add_message(request, messages.ERROR, 'Unable to add the Lecture')
-#             return render(request, 'admins/lecture_form.html', {'form_lecture': form})
-#     context = {
-#         'form_lecture': LecturesForm,
-#     }
-#     return render(request, 'admins/lecture_form.html', context)
-#
-# # retrieving lecture form
-# def get_lecture(request):
-#     lecture=Lectures.objects.all().order_by('-id')
-#     context={
-#         'lecture':lecture
-#     }
-#
-#     return render(request,'admins/get_lecture.html', context)
+def mark_as_read(request, contact_id):
+    message=Contact.objects.get(id=contact_id)
+    message.status="Seen"
+    message.save()
+
+    return redirect('/admins/show_contact')
+
 
 
 # order history for admin

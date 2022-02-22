@@ -10,7 +10,7 @@ class Categories(models.Model):
                                   null=True, max_length=1000)
 
     category_Description=models.TextField(validators=[MinLengthValidator(9), MaxLengthValidator(3000)],
-                                  null=True, max_length=3000)
+                                  null=True, max_length=1000)
     category_Image=models.FileField(upload_to='static/uploaded_Files')
     def __str__(self):
         return self.category_Name
@@ -18,8 +18,9 @@ class Categories(models.Model):
 
 # courses table
 class Courses(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     course_Name=models.CharField(max_length=1000)
-    category=models.ForeignKey(Categories, on_delete=models.CASCADE)
+    category_Courses=models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
     course_Description = models.TextField(validators=[MinLengthValidator(9), MaxLengthValidator(3000)],
 
                                             null=True, max_length=3000)
@@ -85,19 +86,19 @@ class ShippingAddress(models.Model):
 
 # lecturers table
 class Lectures(models.Model):
-    lecture_Name=models.CharField(max_length=3000)
-    course = models.ForeignKey(Courses, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    lecture_Name=models.CharField(max_length=100, null=True)
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True)
     lecture_content= models.TextField(validators=[MinLengthValidator(9), MaxLengthValidator(3000)],
-                                            null=True, max_length=3000)
+                                            null=True, max_length=1000)
     def __str__(self):
         return self.lecture_Name
 
-
-# class Categories_Courses(models.Model):
-#     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
-#     category_Image=models.ForeignKey(Categories, on_delete=models.CASCADE)
-#     category_Details = models.ForeignKey(Categories, on_delete=models.CASCADE)
-#
+# # Comments record table
+# class Comments(models.Model):
+#     user=models.ForeignKey(User, on_delete=models.CASCADE)
 #     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
+#     content=models.TextField(max_length=250)
+#     created_Date=models.DateTimeField(auto_now_add=True)
 #     def __str__(self):
-#         return self.category
+#         return str(self.content)

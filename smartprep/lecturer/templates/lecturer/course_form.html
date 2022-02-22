@@ -1,11 +1,23 @@
 <style>
-    .myForm label.control-label, .myForm div {width:100%;
-font-size:16px;
-font-weight:700;
-font-family: martel,serif;
-    padding-top: 0
+
+<!--    .myForm label.control-label, .myForm div {width:100%;-->
+<!--font-size:16px;-->
+<!--font-weight:700;-->
+<!--font-family: martel,serif;-->
+<!--    padding-top: 0-->
+
+<!--}-->
+ .btnn{
+ margin-top:2%;
+    position:relative;
+    padding: 5px 40px;
+    background-color: #30649C;
+    text-decoration: none;
+    color:white;
+    border-radius: 6px;
 
 }
+
 </style>
 {% extends 'lecturer-layout.html' %}
 {% load bootstrap %}
@@ -15,25 +27,28 @@ font-family: martel,serif;
 
 {% block main_content %}
 
-<div class="container pt-5">
+<div class="category_form ">
+<div class="container mt-5">
 <div class="row">
 
-    <div class="col-md-6 offset-md-3">
-        <h4 id="head4" class="text-center">Add Course</h4>
-          {% include 'messages.html'%}
-        <div class="card py-2 px-2">
+    <div class="col-md-12 mt-5" >
+        <h2 id="head4" class="">Add Category</h2>
+        {% include 'accounts/messages.html' %}
+
+        <div class="card py-2 px-2" style="display:flex; justify-content:center">
         <form class="myForm" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form_course | bootstrap_horizontal }}
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+             {{ form_course | bootstrap_horizontal }}
+            <button type="submit" class="btnn">Submit</button>
         </form>
     </div>
     </div>
 </div>
 </div>
+</div>
 <script>
     var form_fields = document.getElementsByTagName('input')
-    form_fields[1].placeholder = "Enter course
+    form_fields[1].placeholder = "Enter category
 
 
 

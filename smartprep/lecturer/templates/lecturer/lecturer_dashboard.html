@@ -1,11 +1,103 @@
 {% extends 'lecturer-layout.html' %}
 {% load static %}
 {% block title %}
-<title>Lecturer-Dashboard</title>
-{% endblock %}
+<title>Lecturer Dashboard</title>
+{% endblock title %}
+
 {% block main_content %}
 
+<style>
+    .card-body a{
+    text-decoration:none;
+    color:#fff;
+    }
 
-{% endblock %}
+    .card-body a:hover{
+    color:orange;
+    }
+    margin-top:10%;
+    width:100%;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position:relative;
+
+}
+</style>
+<section class="admin_homepage">
+    <div class="container">
+    <div class="row">
+        <div class=" col mt-3">
+            <div class="card text-white bg-primary mt-5 mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Category</div>
+                <div class="card-body">
+                    <a href="/admins/get_category/ ">
+                        <h1 class="card-title text-center">{{category}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col mt-3">
+            <div class="card text-white bg-info mb-3 mt-5" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Orders</div>
+                <div class="card-body">
+                    <a href="/admins/orderhistory/"><h1 class="card-title text-center">{{order}}</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
 
 
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card text-white bg-danger mb-3 mt-5" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Contact Details</div>
+                <div class="card-body">
+                    <a href="/admins/get_contact"><h1 class="card-title text-center"></h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3 mt-5" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Admins</div>
+                <div class="card-body">
+                    <a href="/admins/admins/"><h1 class="card-title text-center">{{admin}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+        <div class="row">
+
+        <div class="col">
+            <div class="card text-white bg-success mb-3 mt-5" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Leaners</div>
+                <div class="card-body">
+                    <a href="/admins/users/"><h1 class="card-title text-center">{{user}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-white bg-warning mb-3 mt-5" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Lecture</div>
+                <div class="card-body">
+                    <a href="/admins/admins"><h1 class="card-title text-center"></h1></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+{% endblock main_content %}

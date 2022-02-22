@@ -22,7 +22,7 @@
 {% extends 'lecturer-layout.html' %}
 {% load bootstrap %}
 {% block title %}
-    <title>Add Lecture</title>
+    <title>Update Course</title>
 {% endblock %}
 
 {% block main_content %}
@@ -32,13 +32,14 @@
 <div class="row">
 
     <div class="col-md-12 mt-5" >
-        <h2 id="head4" class="">Add Lecture</h2>
+        <h2 id="head4" class="">Add Category</h2>
         {% include 'accounts/messages.html' %}
 
         <div class="card py-2 px-2" style="display:flex; justify-content:center">
         <form class="myForm" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-             {{ form_lecture | bootstrap_horizontal }}
+                {{ form_course_update | bootstrap_horizontal }}
+
             <button type="submit" class="btnn">Submit</button>
         </form>
     </div>
