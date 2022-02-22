@@ -12,7 +12,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import Profiles
 from materials.models import Order
 from .forms import ProfileForm
-
+from .models import *
 
 from .forms import CreateUserForm, LoginForm
 from accounts.auth import unauthenticated_user
@@ -25,20 +25,64 @@ def card(request):
 
 
 def homepage(request):
-    return render(request, 'accounts/homepage.html')
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cartItems = order['get_cart_items']
+    context = {
+
+        'cartItems': cartItems,
+        'items': items,
+        'order': order,
+
+        }
+    return render(request, 'accounts/homepage.html',context)
 
 def contact(request):
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cartItems = order['get_cart_items']
     context = {
         'activate_contact': 'active',
 
+        'cartItems': cartItems,
+        'items': items,
+        'order': order,
+
     }
+
     return render(request, 'accounts/contact.html',context)
 
 def about(request):
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cartItems = order['get_cart_items']
     context = {
         'activate_about': 'active',
 
+        'cartItems': cartItems,
+        'items': items,
+        'order': order,
+
     }
+
     return render(request, 'accounts/aboutus.html',context)
 
 # def loginpage(request):

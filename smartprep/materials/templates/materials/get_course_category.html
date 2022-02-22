@@ -1,3 +1,4 @@
+
 {% extends 'layout.html' %}
 {% load static %}
 {% load bootstrap%}
@@ -11,15 +12,16 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
 
 
-.description{width:55%;
+.description{width:75%;
 text-align:justify}
+category_detail:{}
 </style>
 
 <!-- ----------our Course-------- -->
-
-<div class="types mt-5  pt-5" style="background-color:white" >
-    <div class="wrapper pt-5">
-        <div class="links">
+<div class="category_detail">
+    <div class="types mt-5  pt-5" style="background-color:white; " >
+    <div class="wrapper mt-5 pt-5">
+        <div class="links mt-5">
 <!--            -->
 <!--             <h1 class="heading1">-->
 <!--        <span>{{category.category_Name}}</span>-->
@@ -27,7 +29,7 @@ text-align:justify}
 <!--        </h1>-->
             <div class="left-side">
                 <div class="topic">
-                <h1 class="heading" style="color:black">
+                <h1 class="heading" style="color:#30649C">
                     {{category.category_Name}}
                 </h1>
                 </div>
@@ -48,7 +50,7 @@ text-align:justify}
 
                 {% for i in category.courses_set.all %}
                 <div class="view_item">
-                    <div class="vi_left">
+                    <div class="vi_left mt-5">
                         <img src="/{{i.course_Image}}" alt="Relevant Image">
                     </div>
                     <div class="vi_right">
@@ -58,7 +60,11 @@ text-align:justify}
                         -webkit-box-orient:vertical;
                         -webkit-line-clamp:2">
                             {{i.course_Description}}</p>
-                        <div class="btn">Explore ></div>
+                        <a href="/materials/details/{{i.id}}/">
+                            <div class="btn">Explore ></div>
+
+                        </a>
+
                     </div>
                 </div>
                  {% endfor %}
@@ -68,6 +74,10 @@ text-align:justify}
     </div>
 
 </div>
+
+</div>
+
+
     <script>
         var li_links = document.querySelectorAll(".links ul li");
         var view_wraps = document.querySelectorAll(".view_wrap");

@@ -1,25 +1,4 @@
-courses.html
-Who has access
 
-System properties
-Type
-HTML
-Size
-5 KB
-Storage used
-5 KB
-Location
-materials
-Owner
-Manisha Basukala
-Modified
-10:09 am by Manisha Basukala
-Opened
-12:29 pm by me
-Created
-10:29 am
-No description
-Viewers can download
 {% extends 'layout.html' %}
 {% load static %}
 {% load bootstrap%}
@@ -121,7 +100,10 @@ Viewers can download
                         </div>
                         <div class="vi_right">
                             <p class="title">{{i.course_Name}}</p>
-                            <p class="content">
+                            <p class="content"  style="overflow:hidden;
+                        display:-webkit-box;
+                        -webkit-box-orient:vertical;
+                        -webkit-line-clamp:2">
                                 {{i.course_Description}}</p>
                             <a href="/materials/details/{{i.id}}/">
                             <button  class="btn">Explore</button>

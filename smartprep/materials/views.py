@@ -15,11 +15,25 @@ from django.db import connection
 @learner_only
 def home(request):
     category=Categories.objects.all().order_by('-id')
-    context={
-        'category_material':category,
-        'activate_home':'active'
 
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        cartItems = order['get_cart_items']
+    context = {
+        'category_material': category,
+        'activate_home': 'active',
+
+        'items': items,
+        'order': order,
+        'cartItems': cartItems,
     }
+
 
     return render(request, 'materials/content.html', context )
 
@@ -56,8 +70,21 @@ def course(request):
 @learner_only
 def get_course_category(request,categories_id):
     category=Categories.objects.get(id=categories_id)
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0,'shipping': False}
+        cartItems = order['get_cart_items']
     context={
-        'category':category
+        'category':category,
+        'cartItems': cartItems,
+        'items': items,
+        'order': order,
+        'activate_home': 'active',
     }
     return render(request,'materials/get_course_category.html',context)
 
@@ -73,6 +100,7 @@ def details(request,i_id):
         order = {'get_cart_total': 0, 'get_cart_items': 0,'shipping': False}
         cartItems = order['get_cart_items']
     files=Courses.objects.get(id=i_id)
+
     context={
         'i':files,
         'activate_courses': 'active',
@@ -189,10 +217,10 @@ case dzz.delerivered_status
     when 0 then 'Pending'
  end as status    
 FROM materials_order dzz
-left join materials_orderitem dop on  dop.order_id=dzz.id
+inner join materials_orderitem dop on  dop.order_id=dzz.id
 left join materials_shippingaddress dxx on dxx.order_id=dzz.id
 left join materials_courses dmf on dop.product_id=dmf.id
-left join auth_user ddd on ddd.id=dzz.customer_id
+inner join auth_user ddd on ddd.id=dzz.customer_id
 where dzz.customer_id = %s""",(userid,))
     details=cursor.fetchall()
     result=[]
@@ -223,14 +251,79 @@ def delete_history(request,file_orderid):
     return redirect('/materials/orderhistory/')
 
 def mylearning(request):
-    return render(request,'materials/mylearning.html')
+    userid = request.user.id
+    cursor = connection.cursor()
+    cursor.execute("""SELECT dmf.course_Name,dmf.course_Description,dmf.course_Image 
+    FROM materials_order dzz inner join materials_orderitem dop on dop.order_id=dzz.id 
+    left join materials_shippingaddress dxx on dxx.order_id=dzz.id left join materials_courses 
+    dmf on dop.product_id=dmf.id inner join auth_user ddd on ddd.id=dzz.customer_id where 
+    dzz.customer_id =%s and dzz.complete=1;
+""", (userid,))
+    details = cursor.fetchall()
+    result = []
+    for detail in details:
+        keys = ('name', 'description', 'image')
+        result.append(dict(zip(keys, detail)))
+
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        cartItems = order['get_cart_items']
+    context = {
+        "detail": result,
+        'items': items,
+        'order': order,
+        'cartItems': cartItems,
+    }
+    return render(request,'materials/mylearning.html',context)
 
 
 def mymodule(request):
-    return render(request,'materials/module.html')
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cartItems = order['get_cart_items']
+    context = {'items': items,
+               'order': order,
+               'cartItems': cartItems}
+    return render(request,'materials/module.html',context)
 
 def myquiz(request):
-    return render(request,'materials/quiz.html')
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cartItems = order['get_cart_items']
+    context = {'items': items,
+               'order': order,
+               'cartItems': cartItems}
+    return render(request,'materials/quiz.html',context)
 
 def myweek(request):
-    return render(request,'materials/week1.html')
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cartItems = order['get_cart_items']
+    context = {'items': items,
+               'order': order,
+               'cartItems': cartItems}
+    return render(request,'materials/week1.html',context)
