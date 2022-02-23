@@ -61,14 +61,20 @@
                     <div class="vi_right" style="height:200px">
                         <p class="title" style="text-overflow:ellipsis;
 overflow:hidden">{{i.category_Name}}</p>
-                        <div class="content-content">
-                        <p class="content"   style="  text-align: justify; color:black">{{i.category_Description}}</p>
-                        </div>
+                    </div>
+
+                        <p class="content"   style=" overflow:hidden;
+                        display:-webkit-box;
+                        -webkit-box-orient:vertical;
+                        -webkit-line-clamp:3; text-align: justify; color:black">{{i.category_Description}}
+
+                        </p>
+
 
                         <div class="bottom-CE">
                             <span class="btn" ><a href="/materials/get_course_category/{{i.id}}" style="text-decoration:none; color:white"> Explore > </a></span>
                         </div>
-                    </div>
+
                 </div>
                 {% endfor %}
 
