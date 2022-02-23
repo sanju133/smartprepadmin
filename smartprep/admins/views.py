@@ -22,15 +22,21 @@ def admin_dashboard(request):
     orders = Order.objects.all()
     orders_count = orders.count()
 
+    contact = Contact.objects.all()
+    contact_count = contact.count()
+
     users = User.objects.all()
     user_count = users.filter(is_staff=0).count()
     admin_count = users.filter(is_staff=1).count()
+    lecture_count = users.filter(is_staff=1 ,is_superuser=0).count()
 
     context = {
         'order': orders_count,
         'category':category_count,
         'user': user_count,
         'admin': admin_count,
+        'contact':contact_count,
+        'lecture':lecture_count,
         'activate_dashboard': 'active'
 
     }
@@ -195,6 +201,17 @@ def get_admins(request):
         'activate_admin': 'active',
     }
     return render(request, 'admins/admins.html', context)
+
+
+# @login_required
+# @admin_only
+# def get_admins(request):
+#     admins = User.objects.filter(is_staff=1).order_by('-id')
+#     context = {
+#         'admins':admins,
+#         'activate_admin': 'active',
+#     }
+#     return render(request, 'admins/admins.html', context)
 
 @login_required
 @admin_only

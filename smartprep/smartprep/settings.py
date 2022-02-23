@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'materials.apps.MaterialsConfig',
     'lecturer.apps.LecturerConfig',
     'bootstrapform',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sanjumaharjan683@gmail.com'
 EMAIL_HOST_PASSWORD = 'fudz crih wrse qnef'
+

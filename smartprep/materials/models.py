@@ -1,6 +1,7 @@
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 from accounts.forms import CreateUserForm
 
 # Create your models here.
@@ -89,7 +90,7 @@ class Lectures(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     lecture_Name=models.CharField(max_length=100, null=True)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True)
-    lecture_content= models.TextField(validators=[MinLengthValidator(9), MaxLengthValidator(3000)],
+    lecture_content= RichTextField(validators=[MinLengthValidator(9), MaxLengthValidator(3000)],
                                             null=True, max_length=1000)
     def __str__(self):
         return self.lecture_Name

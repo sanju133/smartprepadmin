@@ -2,6 +2,18 @@
 .coursedetail{
 margin-top:7%;
 }
+.postb{
+
+
+    width: 155px;
+    height: 43px;
+    background-color: #30649C;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+}
 		.main{
 
 			margin: 90px;
@@ -109,16 +121,12 @@ margin-top:7%;
 			display: none;
 		}
 		.ratebox{
-			margin: 60px;
-			padding-left: 30px;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-evenly;
+			margin-left:5%
 		}
 		.reviews{
 			flex: 50%;
 			color: #1f1f1f;
-			background-color: white;
+			background-color: ;
 			padding: 20px;
 
 		}
@@ -248,14 +256,11 @@ margin-top:7%;
 		<hr>
 
 
+
 		<!-- Weekly syallbus -->
-
-
-		<<div class="learning">
+	<div class="learning1">
 			<h1>Syallbus what you will learn from this course</h1>
-
-
-			{% for i in course.lectures_set.all %}
+		{% for i in course.lectures_set.all %}
 			<div class="syallbus">
 				<div class="week1">
 					<h1 id="week">Topics</h1>
@@ -264,12 +269,16 @@ margin-top:7%;
 
 				<div class="week1">
 					<h3>{{i.lecture_Name}}</h3><br>
-
-								<span ></span> {{comments.count}} Comments
+					{{comments.count}} Comments
+					<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>  &nbsp;4.9 &nbsp; 76,209 ratings . 20,00 reviews
 
 								<style type="text/css">
 									.checked {
-											color: orange;
+										 color: orange;
 									}
 
 								</style>
@@ -279,11 +288,14 @@ margin-top:7%;
                         display:-webkit-box;
                         -webkit-box-orient:vertical;
                         -webkit-line-clamp:3" >
-						{{i.lecture_content}}
+						{{i.lecture_content|safe}}
 					</p>
 				</div>
 			</div>
 			{% endfor %}
+
+
+
 
 			</div>
 			<button class="btn1">Load More</button>
@@ -293,8 +305,13 @@ margin-top:7%;
 		</div>
 
 
+
+
+
+
+
 		<!-- Review Section -->
-		<div class="ratingreview">
+		<div class="">
 
 				<hr>
 
@@ -308,25 +325,26 @@ margin-top:7%;
 
 					<form method="POST">
 						{% csrf_token %}
-						{{ comment_form.as_p }}
+						<h2 style="color:#30649C">Feedback</h2><br>
+						<label for="id_content"></label>
+						<textarea name="content" cols="160" rows="5" maxlength="250" placeholder="Add feedback" required="" id="id_content">dd</textarea><br><br>
 						{% if request.user.is_authenticated %}
-						<input type="submit" value="Submit" class="btn btn-outline-success">
+						<input type="submit" value="POST" class="POSTb">
 						{% else %}
-						<input type="submit" value="Submit" class="btn btn-outline-success" disabled>
+						<input type="submit" value="POST" class="POSTb" disabled>
 						{% endif %}
 
 					</form>
 					<div class="review-form">
 						{{comments.count}} Comments{{comments|pluralize}}
 						{% for comment in comments %}
+						<br><hr>
+						<h5>{{comment.user.first_name}} {{comment.user.last_name}} </h5>
+
+
   							<blockquote class="blockquote">
-								<p class="mb-0">{{comment.content}}</p>
-								<footer class="blockquote-footer">
-									by
+								<p style="font-size:15px" class="mb-0">{{comment.content}}</p>
 
-										{{comment.user}}
-
-								</footer>
 
 	    					</blockquote>
 						{% endfor %}
@@ -338,8 +356,7 @@ margin-top:7%;
 
 
 			</div>
-			<button class="btn2">See More</button>
-			<hr>
+
 
 			<h1 style="font-size: 24px; margin-left: 8%;">Instructor</h1>
 			<div class="professor">

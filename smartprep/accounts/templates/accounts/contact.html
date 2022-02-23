@@ -142,6 +142,7 @@
     <div class = "contact-form mt-3">
 
       <form action="" autocomplete="off" class="" method="POST">
+           {% include 'accounts/messages.html' %}
                 {% csrf_token %}
         <div>
           <input type = "text" class = "form-control" placeholder="First Name" name="firstname">

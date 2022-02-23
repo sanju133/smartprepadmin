@@ -38,7 +38,9 @@
         <div class="card py-2 px-2" style="display:flex; justify-content:center">
         <form class="myForm" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-             {{ form_lecture | bootstrap_horizontal }}
+
+            {{ form_lecture.media }}
+             {{ form_lecture.as_p }}
             <button type="submit" class="btnn">Submit</button>
         </form>
     </div>
