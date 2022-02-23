@@ -94,11 +94,10 @@ class Lectures(models.Model):
     def __str__(self):
         return self.lecture_Name
 
-# # Comments record table
-# class Comments(models.Model):
-#     user=models.ForeignKey(User, on_delete=models.CASCADE)
-#     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
-#     content=models.TextField(max_length=250)
-#     created_Date=models.DateTimeField(auto_now_add=True)
-#     def __str__(self):
-#         return str(self.content)
+class Comments(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE)
+    content=models.TextField(max_length=250)
+    created_Date=models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return str(self.content)

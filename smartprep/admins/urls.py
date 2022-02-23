@@ -25,4 +25,7 @@ path('orderhistory/',views.order),
     path('promote_user/<int:user_id>', views.promote_user),
     path('demote_user/<int:user_id>', views.demote_user),
 
+    path('get_particular_courses/<int:categories_id>', views.get_particular_course),
+
+
 ]

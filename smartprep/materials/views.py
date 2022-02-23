@@ -5,6 +5,7 @@ from django.shortcuts import render,redirect
 from accounts.auth import learner_only
 from materials.filters import CourseFilter, CatFilter
 from materials.models import Categories, Courses, Order
+from .forms import CommentForm
 from .models import *
 from django.http import JsonResponse
 import json
@@ -88,8 +89,21 @@ def get_course_category(request,categories_id):
     }
     return render(request,'materials/get_course_category.html',context)
 
-# recently added courses
+# recently
 def details(request,i_id):
+    courseDetail = Courses.objects.get(id=i_id)
+    comments = Comments.objects.filter(course_id=i_id)
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            content = request.POST.get('content')
+            comment = Comments.objects.create(course_id=i_id, user=request.user, content=content)
+            comment.save()
+
+    else:
+        comment_form = CommentForm()
+
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -107,6 +121,9 @@ def details(request,i_id):
         'cartItems': cartItems,
         'items': items,
         'order': order,
+        'course': courseDetail,
+        'comments': comments,
+        'comment_form': comment_form
     }
     return render(request, 'materials/details.html', context)
 

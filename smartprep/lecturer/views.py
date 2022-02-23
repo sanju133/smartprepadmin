@@ -67,6 +67,7 @@ def course_update_form(request, courses_id):
         'activate_course':'active'
     }
     return render(request, 'lecturer/course_update_form.html', context)
+
 #lectures Form
 def lectures_form(request):
     if request.method=="POST":
@@ -84,6 +85,8 @@ def lectures_form(request):
         'form_lecture': LecturesForm,
     }
     return render(request, 'lecturer/lecture_form.html', context)
+
+#getting lecture that you added only
 def get_lecture(request):
     User=request.user
     lecture=Lectures.objects.filter(user=User).order_by('-id')
@@ -95,6 +98,7 @@ def get_lecture(request):
 
     return render(request,'lecturer/get_lecture.html', context)
 
+#lecture update form
 def lecture_update_form(request, lectures_id):
     lecture= Lectures.objects.get(id=lectures_id)
     if request.method == "POST":

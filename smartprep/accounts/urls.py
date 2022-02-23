@@ -13,6 +13,10 @@ path('resendOTP/', resend_otp),
     path('RegisterForm/', views.register_user),
     path('logout', views.logout_user),
     path('profile/',views.profile),
+
+path('password_change/', views.password_change),
+
+
     # path('registerr', views.register)
 path("password-reset/",
     	PasswordResetView.as_view(template_name='user/password_reset.html'),

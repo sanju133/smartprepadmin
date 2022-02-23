@@ -77,11 +77,17 @@ def get_category(request):
         'activate_category_admin':'active'
     }
     return render(request, 'admins/get_category.html', context)
+# #deleting category
+# @login_required
+# @admin_only
+# def delete_category(request, categories_id):
+#     category=Categories.objects.get(id=categories_id)
+#     category.delete()
+#     messages.add_message(request, messages.SUCCESS, 'Category Deleted!')
+#     return redirect('/admins/get_category/')
 
 
-#deleting category
-@login_required
-@admin_only
+#deleting course
 def delete_category(request, categories_id):
     category=Categories.objects.get(id=categories_id)
     category.delete()
@@ -221,3 +227,14 @@ def delete_admin(request,user_id):
     user=User.objects.get(id=user_id)
     user.delete()
     return redirect('/admins/admins')
+
+
+@login_required
+@admin_only
+# get perticular course
+def get_particular_course(request, categories_id):
+    categories=Categories.objects.get(id=categories_id)
+    context={
+        'categories':categories
+    }
+    return render(request, 'admins/get_particular_course.html', context)

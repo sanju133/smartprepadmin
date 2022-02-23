@@ -1,4 +1,4 @@
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 import random
@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404, JsonResponse
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from .models import Profiles
 from materials.models import Order
 from .forms import ProfileForm, ContactForm
@@ -280,3 +280,29 @@ def profile(request):
         'cartItems': cartItems,
     }
     return render(request, 'accounts/profile.html', context)
+
+
+
+# for password change
+# function for changing password
+@login_required
+def password_change(request):
+    if request.method=='POST':
+        # new_password1 = request.POST.get('new_password1')
+        # new_password2 = request.POST.get('new_password2')
+        form=PasswordChangeForm(request.user,request.POST)
+        if form.is_valid():
+            user=form.save()
+            update_session_auth_hash(request,user)
+            messages.add_message(request,messages.SUCCESS,"Password changed successfully!")
+            return redirect('/password_change')
+        else:
+            # if User.objects.filter(new_password1=new_password1).exists():
+            #     messages.add_message(request, messages.ERROR,'username already exists')
+            #     return redirect('/RegisterForm/')
+            messages.add_message(request,messages.ERROR, "Something went wrong!")
+            return render(request,'accounts/password_change.html', {'password_change_form':form})
+    context={
+        'password_change_form':PasswordChangeForm(request.user),
+    }
+    return render(request,'accounts/password_change.html',context)

@@ -349,136 +349,60 @@ margin-top:7%;
 
 		<!-- Review Section -->
 		<div class="ratingreview">
-			<div class="ratingnumber">
-				<span style="font-size: 60px; font-weight:bold;">4.9</span>&nbsp;
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star"></span>&nbsp; 76,209 ratings . 20,00 reviews
 
-				<style type="text/css">
-					.checked {
-							color: orange;
-					}
-
-				</style>
-				<p style="font-size: 24px;">Top Reviews</p>
-			</div>
 				<hr>
 
 			<div class="ratebox">
-				<div class="reviews">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
 
-					<style type="text/css">
-						.checked {
-								color: orange;
-						}
 
-					</style>
-					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
-
-				</div>
-				<div class="reviews">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
-
-					<style type="text/css">
-						.checked {
-								color: orange;
-						}
-
-					</style>
-					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
-
-				</div>
 
 				<div class="reviews">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
 
-					<style type="text/css">
-						.checked {
-								color: orange;
-						}
 
-					</style>
-					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
 
-				</div>
-				<div class="reviews">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+					<form method="POST">
+						{% csrf_token %}
+						{{ comment_form.as_p }}
+						{% if request.user.is_authenticated %}
+						<input type="submit" value="Submit" class="btn btn-outline-success">
+						{% else %}
+						<input type="submit" value="Submit" class="btn btn-outline-success" disabled>
+						{% endif %}
 
-					<style type="text/css">
-						.checked {
-								color: orange;
-						}
+					</form>
+					<div class="review-form">
+						{{comments.count}} Comments{{comments|pluralize}}
+						{% for comment in comments %}
+  							<blockquote class="blockquote">
+								<p class="mb-0">{{comment.content}}</p>
+								<footer class="blockquote-footer">
+									by
 
-					</style>
-					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
+										{{comment.user}}
 
-				</div>
-				<div class="reviews">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
+								</footer>
 
-					<style type="text/css">
-						.checked {
-								color: orange;
-						}
+	    					</blockquote>
+						{% endfor %}
+					</div>
 
-					</style>
-					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
 
 				</div>
-				<div class="reviews">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>&nbsp; By CS. 2019 Dec
 
-					<style type="text/css">
-						.checked {
-								color: orange;
-						}
 
-					</style>
-					<p>An ok course for beginners. A bit too basic for someone who has already had experience in design, but is great anyway cause it breaks things back down to the simplest parts to help you remember roots.</p>
 
-				</div>
 			</div>
 			<button class="btn2">See More</button>
 			<hr>
 
 			<h1 style="font-size: 24px; margin-left: 8%;">Instructor</h1>
 			<div class="professor">
-				<div class="profdetail">
-					<img src="img/about-us.jpg" class="avatar">
-				</div> &nbsp; &nbsp;
+
 
 				<div class="profdetail">
-					<p>Ishan Basnet<br>
-					Faculty, Program in IT<br>
-					School of IT</p>
+
+					<p>  <i> {{course.user}}</i>
+					</p>
 
 				</div>
 			</div>
