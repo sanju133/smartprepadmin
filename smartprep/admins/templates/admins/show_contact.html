@@ -1,3 +1,82 @@
+<style>
+    /* ---------contact------------ */
+@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrapper{
+  margin: 2%;
+}
+
+
+
+.team{
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  flex-wrap: wrap;
+
+}
+
+.team .team_member{
+  background:white;
+  margin: 2px;
+  margin-left:5%;
+  margin-right:6%;
+
+
+  margin-bottom: 50px;
+  width: 500px;
+  padding: 20px;
+  line-height: 20px;
+  color:#30649C;
+  position: relative;
+  box-shadow: 0 5px 10px #efefef;
+}
+
+.team .team_member h3{
+  color:#30649C ;
+  font-size: 26px;
+
+}
+
+.team .team_member p.role{
+  color: black;
+  margin: 12px 0;
+  font-size: 13px;
+
+}
+
+.delete{
+
+    text-decoration:none;
+    color:white;
+    border:none;
+    outline:none;
+    background:#30649C;
+    border-radius:5px;
+    padding:10px 24px;
+    font-size:15px;
+    position:relative;
+    cursor:pointer;
+    margin-left: 70%;
+
+
+}
+
+
+
+
+</style>
 {% extends 'admin-layout.html' %}
 {% load static %}
 {% block title %}
@@ -26,44 +105,53 @@
 
                     </div>
                     <!-- user img-->
-                    <div class="user">
+<!--                    <div class="user">-->
 
-                        <img src = "{% static 'images/user.jpg' %}" alt = "" width="40px" height="40px">
-                        <div>
-                            <h4>Sanju Maharjan</h4>
-                        <p style="color:gray;">Admin</p>
+<!--                        <img src = "{% static 'images/user.jpg' %}" alt = "" width="40px" height="40px">-->
+<!--                        <div>-->
+<!--                            <h4>Sanju Maharjan</h4>-->
+<!--                        <p style="color:gray;">Admin</p>-->
 
-                        </div>
+<!--                        </div>-->
 
 
 
-                    </div>
+<!--                    </div>-->
                 </div>
 
             </div>
 
         <!-- </div> -->
         <!-- heading -->
-         <h1 style="margin:2%;" class="heading">Contact Details</h1>
-    <div class="wrapper">
+         <h1 style=" margin:3%;" class="heading">Contact Details</h1>
+
+        <div class="wrapper">
 
             <div class="team">
-                {% for i in contact_admin %}
+                  {% for i in contact_admin %}
               <div class="team_member">
 
-                <h3>{{i.firstname}} {{i.lastname}}</h3>
+                 <h3>{{i.firstname}} {{i.lastname}}</h3>
                 <p class="role">{{i.created_date}}</p>
                 <p class="role">{{i.phone}}</p>
 
-               <q class="role">{{i.message}}</q><br>
-                  <button class="delete"  style=""><a href="/admins/transform_message/{{i.id}}"
+                <p class="role">"{{i.message}}"</p><br>
+               <button class="delete"  style=""><a  style="color:white" href="/admins/transform_message/{{i.id}}"
                       >{{i.status}} </a></button>
               </div>
-                {% endfor %}
+                   {% endfor %}
+
 
 
             </div>
           </div>
+
+
+
+
+
+
+    </div>
 
 
 

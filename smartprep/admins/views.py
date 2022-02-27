@@ -195,7 +195,7 @@ def get_users(request):
 @login_required
 @admin_only
 def get_admins(request):
-    admins = User.objects.filter(is_staff=1).order_by('-id')
+    admins = User.objects.filter(is_staff=1, is_superuser=1).order_by('-id')
     context = {
         'admins':admins,
         'activate_admin': 'active',
@@ -203,15 +203,15 @@ def get_admins(request):
     return render(request, 'admins/admins.html', context)
 
 
-# @login_required
-# @admin_only
-# def get_admins(request):
-#     admins = User.objects.filter(is_staff=1).order_by('-id')
-#     context = {
-#         'admins':admins,
-#         'activate_admin': 'active',
-#     }
-#     return render(request, 'admins/admins.html', context)
+@login_required
+@admin_only
+def get_lecture(request):
+    lecture = User.objects.filter(is_staff=1 ,is_superuser=0).order_by('-id')
+    context = {
+        'lecture':lecture,
+        'activate_lecture': 'active',
+    }
+    return render(request, 'admins/lecture.html', context)
 
 @login_required
 @admin_only
@@ -244,6 +244,34 @@ def delete_admin(request,user_id):
     user=User.objects.get(id=user_id)
     user.delete()
     return redirect('/admins/admins')
+
+@login_required
+@admin_only
+def add_lecture(request):
+    if request.method =="POST":
+        form=CreateUserForm(request.POST)
+        if form.is_valid():
+            username=form.cleaned_data.get('username')
+            email=form.cleaned_data.get('username')
+            user=User.objects.create_user(username=username,
+                                   email=email)
+            user.is_staff=True
+            user.is_superuser=False
+
+
+            user.save()
+
+
+            return redirect('/admins/add_lecture/')
+        else:
+            messages.add_message(request, messages.ERROR,'Sorry! ,Something went wrong')
+            return render(request, 'admins/add_lecture.html',{'form_admin':form})
+    context = {
+        'form_admin': CreateUserForm,
+        'activate_admin': 'active',
+
+    }
+    return render(request,'admins/add_lecture.html',context)
 
 
 @login_required

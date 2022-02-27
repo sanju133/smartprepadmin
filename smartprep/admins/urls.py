@@ -18,6 +18,8 @@ path('orderhistory/',views.order),
 
     path('users/', views.get_users),
     path('admins/', views.get_admins),
+      path('lecture/', views.get_lecture),
+    path('add_lecture/', views.add_lecture),
 
     path('delete_user/<int:user_id>', views.delete_user),
     path('delete_admin/<int:user_id>', views.delete_admin),
