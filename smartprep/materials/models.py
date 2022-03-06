@@ -19,6 +19,7 @@ class Categories(models.Model):
 
 # courses table
 class Courses(models.Model):
+    file = models.FileField(blank=True, upload_to='static/pdf_uploads', null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     course_Name=models.CharField(max_length=1000)
     category_Courses=models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)

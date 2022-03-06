@@ -11,7 +11,7 @@ class CategoriesForm(ModelForm):
 class CoursesForm(ModelForm):
     class Meta:
         model=Courses
-        fields=['course_Name', 'category_Courses', 'course_Description',
+        fields=['course_Name', 'category_Courses', 'course_Description','file',
                 'course_Image', 'price','digital']
 
  # course_Name=models.CharField(max_length=1000)

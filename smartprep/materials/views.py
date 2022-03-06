@@ -303,7 +303,7 @@ def mylearning(request):
 
 
 def mymodule(request,file_orderid):
-    course = Order.objects.get(id=file_orderid)
+    course = OrderItem.objects.get(id=file_orderid)
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -338,8 +338,10 @@ def myquiz(request):
                'cartItems': cartItems}
     return render(request,'materials/quiz.html',context)
 
-def myweek(request):
+def myweek(request, lectures_id):
+    lecture = Lectures.objects.get(id=lectures_id)
     if request.user.is_authenticated:
+
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
@@ -350,5 +352,6 @@ def myweek(request):
         cartItems = order['get_cart_items']
     context = {'items': items,
                'order': order,
+               'lecture':lecture,
                'cartItems': cartItems}
     return render(request,'materials/week1.html',context)

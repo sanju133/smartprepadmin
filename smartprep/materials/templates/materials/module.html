@@ -370,8 +370,8 @@
 				</div> &nbsp; &nbsp;
 
 				<div class="introdetail">
-					<p>Ishan Basnet<br>
-					 Program in IT<br>
+					<p>{{detail.product.user.username}}<br>
+					 {{detail.product.course_Name}}<br>
 					</p>
 
 				</div>
@@ -418,7 +418,7 @@
         <div class="radio_content radio_1">
           <div class="overview1 mt-3">
             <h1>Module Overview</h1>
-            <p>The web has evolved over the last two decades from a collection of pages containing simple static content to delivering a huge range of web applications with advanced interfaces and capabilities. These require developers with a complex range of skills and the ability to work to clearly defined web standards. We intend to introduce this world of web using Python and its web frameworks (Django), JavaScript and its libraries.</p>
+            <p>{{detail.product.course_Description}}</p>
           </div>
 
           <div class="overview2 mt-3">
@@ -430,34 +430,22 @@
         </div>
         <div class="radio_content radio_2">
           <div class="resources">
-            <h1 style="font-size: 22px;">Weekly lessons</h1>
+            <h1 style="font-size: 22px;">Topics</h1>
             <hr>
-            <h1 style="font-size: 26px; font-weight: bold;">Untitled</h1>
+            <h1 style="font-size: 26px; font-weight: bold;">{{detail.product.course_Name}}</h1>
+
+
+            {% for i in detail.product.lectures_set.all %}
+
             <div class="res-week">
-              <h4 style="border:none;"><a href="/materials/week1/">
-                  <button>Week1</button>
+              <h4 style="border:none;"><a href="/materials/lecture/{{i.id}}">
+                  <button>{{i.lecture_Name}}</button>
                 </a></h4>
             </div>
-            <div class="res-week">
-              <h4 style="border:none;"><a href="/materials/week1/">
-                  <button>Week2</button>
-                </a></h4>
-            </div>
-            <div class="res-week">
-              <h4 style="border:none;"><a href="/materials/week1/">
-                  <button>Week3</button>
-                </a></h4>
-            </div>
-            <div class="res-week">
-              <h4 style="border:none;"><a href="/materials/week1/">
-                  <button>Week4</button>
-                </a></h4>
-            </div>
-            <div class="res-week">
-              <h4 style="border:none;"><a href="/materials/week1/">
-                  <button>Week5</button>
-                </a></h4>
-            </div>
+            {% endfor %}
+
+
+
           </div>
         </div>
         <div class="radio_content radio_3">
@@ -525,12 +513,17 @@
         <h2><ion-icon name="time-outline"></ion-icon>&nbsp;&nbsp;11 weeks long</h2>
         <h2><ion-icon name="save-outline"></ion-icon>&nbsp;&nbsp;5 lessons</h2>
         <h2><ion-icon name="save-outline"></ion-icon>&nbsp;&nbsp;Quiz</h2>
-        <h2><ion-icon name="book-outline"></ion-icon>&nbsp;&nbsp;8 hours weekly study</h2>
+
         <h2><ion-icon name="snow-outline"></ion-icon>&nbsp;&nbsp;Progressive Assessments</h2>
       </div>
 
     </div>
 
+    <div class="ratingcard mt-3">
+     <h1 style="font-size:20px"> <i class="fa fa-file" aria-hidden="true"></i>    Course File</h1>
+      <p><div  style="padding-left:20px"><a href="/{{i.file}}"  download  style="padding-right:20px">Download</a>  </div>
+</p>
+    </div>
     <div class="ratingcard mt-3">
       <h1 style="font-size: 20px;">Rate this course</h1>
       <hr>
