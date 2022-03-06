@@ -27,7 +27,7 @@ def admin_dashboard(request):
 
     users = User.objects.all()
     user_count = users.filter(is_staff=0).count()
-    admin_count = users.filter(is_staff=1).count()
+    admin_count = users.filter(is_staff=1, is_superuser=0).count()
     lecture_count = users.filter(is_staff=1 ,is_superuser=0).count()
 
     context = {

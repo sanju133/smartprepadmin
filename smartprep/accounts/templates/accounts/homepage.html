@@ -706,7 +706,7 @@ margin-top:5%;
 <!-- Our Popular Courses -->
 
 <div class="courses mt-5 p-5">
-    <h1>Some Popular Courses</h1>
+    <h1>Recently Added Courses</h1>
 
 
     <span class="section-separator"></span>
@@ -717,39 +717,10 @@ margin-top:5%;
 				<div class="col-lg-12">
 					<div id="news-slider" class="owl-carousel">
 						<!-- 1 -->
-						<div class="news-grid">
-							<div class="news-grid-image"><img src="{% static 'images/engineer2.gif' %}" alt="">
-								<div class="news-grid-box">
-									<h2>19</h2>
-									<p>Sep</p>
-								</div></div>
-								<div class="news-grid-txt">
 
-
-									<h2>Heading Will Be Here</h2>
-									<ul>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i></i> Sep 19, 2020</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i></i> Admin</li>
-									</ul>
-									<div class='content-detail' >
-										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											 voluptas amet quasi dicta consectetur.
-											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											  voluptas amet quasi dicta consectetur</p>
-
-									</div>
-
-
-									<a class="mt-5" href="#">Read More...</a>
-								</div>
-							</div>
-							<!-- 2 -->
-
+                        {% for i in courses %}
                         <div class="news-grid">
-							<div class="news-grid-image"><img src="{% static 'images/music2.gif' %}" alt="">
+							<div class="news-grid-image"><img src="/{{i.course_Image}}" alt="">
 								<div class="news-grid-box">
 									<h2>19</h2>
 									<p>Sep</p>
@@ -757,89 +728,21 @@ margin-top:5%;
 								<div class="news-grid-txt">
 
 
-									<h2>Heading Will Be Here</h2>
+									<h2>{{i.course_Name}}</h2>
 									<ul>
 										<li><i class="fa fa-calendar" aria-hidden="true"></i> Sep 19, 2020</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i> Admin</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i> {{i.user.username}}</li>
 									</ul>
 									<div class='content-detail' >
-										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											 voluptas amet quasi dicta consectetur.
-											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											  voluptas amet quasi dicta consectetur</p>
+										<p class='content-p'>{{i.course_Description}}</p>
 
 									</div>
 
 
-									<a class="mt-5" href="#">Read More...</a>
+									<a class="mt-5" href="/materials/details/{{i.id}}/">Read More...</a>
 								</div>
 							</div>
-
-								<!-- 3 -->
-                    <div class="news-grid">
-							<div class="news-grid-image"><img src="{% static 'images/cooking.gif' %}" alt="">
-								<div class="news-grid-box">
-									<h2>19</h2>
-									<p>Sep</p>
-								</div></div>
-								<div class="news-grid-txt">
-
-
-									<h2>Heading Will Be Here</h2>
-									<ul>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i> Sep 19, 2020</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i> Admin</li>
-									</ul>
-									<div class='content-detail' >
-										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											 voluptas amet quasi dicta consectetur.
-											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											  voluptas amet quasi dicta consectetur</p>
-
-									</div>
-
-
-									<a class="mt-5" href="#">Read More...</a>
-								</div>
-							</div>
-
-									<!-- 4 -->
-
-                        <div class="news-grid">
-							<div class="news-grid-image"><img src="{% static 'images/3.gif' %}" alt="">
-								<div class="news-grid-box">
-									<h2>19</h2>
-									<p>Sep</p>
-								</div></div>
-								<div class="news-grid-txt">
-
-
-									<h2>Heading Will Be Here</h2>
-									<ul>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i> Sep 19, 2020</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i> Admin</li>
-									</ul>
-									<div class='content-detail' >
-										<p class='content-p'>Lorem,ipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											 voluptas amet quasi dicta consectetur.
-											 adipisicing elit. Consequuntur aspernatur reprehenderit velitipsum dolor sit amet consectetur,
-											 adipisicing elit. Consequuntur aspernatur reprehenderit veli est voluptatum,
-											  voluptas amet quasi dicta consectetur</p>
-
-									</div>
-
-
-									<a class="mt-5" href="#">Read More...</a>
-								</div>
-							</div>
+                        {% endfor %}
 
 
 										<!-- 5 -->

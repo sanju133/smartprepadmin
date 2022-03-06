@@ -18,7 +18,10 @@ urlpatterns = [
     path('delete_history/<int:file_orderid>',views.delete_history),
 
     path('mylearning/',views.mylearning),
-    path('module/', views.mymodule),
+    # path('module/', views.mymodule),
+
+    path('module/<int:i_id>/', views.mymodule),
+
     path('quiz/', views.myquiz),
     path('week1/', views.myweek),
     # path('content/', views.content2)

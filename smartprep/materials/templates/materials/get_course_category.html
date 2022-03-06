@@ -1,4 +1,7 @@
-
+<style>
+    .img{height:400px;
+     width:400px}
+</style>
 {% extends 'layout.html' %}
 {% load static %}
 {% load bootstrap%}
@@ -41,7 +44,7 @@ category_detail:{}
             </div>
 
             <div class="right-side">
-                <img src="/{{category.category_Image}}">
+                <img class="img" src="/{{category.category_Image}}">
 
             </div>
         </div>

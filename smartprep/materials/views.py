@@ -300,19 +300,25 @@ def mylearning(request):
     return render(request,'materials/mylearning.html',context)
 
 
-def mymodule(request):
+def mymodule(request,i_id):
+    course = Courses.objects.get(id=i_id)
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
+        files = Courses.objects.get(id=i_id)
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cartItems = order['get_cart_items']
-    context = {'items': items,
+
+    context = {
+        'items': items,
                'order': order,
-               'cartItems': cartItems}
+               'cartItems': cartItems,
+               'i':files
+               }
     return render(request,'materials/module.html',context)
 
 def myquiz(request):

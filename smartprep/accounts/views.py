@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404, JsonResponse
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from .models import Profiles
-from materials.models import Order
+from materials.models import Order, Courses
 from .forms import ProfileForm, ContactForm
 from .models import *
 
@@ -25,6 +25,8 @@ def card(request):
 
 
 def homepage(request):
+    courses = Courses.objects.order_by('-id').all()[:4]
+
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -39,6 +41,7 @@ def homepage(request):
         'cartItems': cartItems,
         'items': items,
         'order': order,
+        'courses': courses,
 
         }
     return render(request, 'accounts/homepage.html',context)
