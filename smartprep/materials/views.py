@@ -270,16 +270,18 @@ def delete_history(request,file_orderid):
 def mylearning(request):
     userid = request.user.id
     cursor = connection.cursor()
-    cursor.execute("""SELECT dmf.course_Name,dmf.course_Description,dmf.course_Image 
-    FROM materials_order dzz inner join materials_orderitem dop on dop.order_id=dzz.id 
-    left join materials_shippingaddress dxx on dxx.order_id=dzz.id left join materials_courses 
+    cursor.execute("""SELECT  dmf.course_Name,dmf.course_Description,dmf.course_Image, dzz.id
+    FROM materials_order dzz 
+    inner join materials_orderitem dop on dop.order_id=dzz.id 
+    left join materials_shippingaddress dxx on dxx.order_id=dzz.id
+     left join materials_courses 
     dmf on dop.product_id=dmf.id inner join auth_user ddd on ddd.id=dzz.customer_id where 
     dzz.customer_id =%s and dzz.complete=1;
 """, (userid,))
     details = cursor.fetchall()
     result = []
     for detail in details:
-        keys = ('name', 'description', 'image')
+        keys = ('name', 'description', 'image','orderid')
         result.append(dict(zip(keys, detail)))
 
     if request.user.is_authenticated:
@@ -300,15 +302,15 @@ def mylearning(request):
     return render(request,'materials/mylearning.html',context)
 
 
-def mymodule(request,i_id):
-    course = Courses.objects.get(id=i_id)
+def mymodule(request,file_orderid):
+    course = Order.objects.get(id=file_orderid)
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        files = Courses.objects.get(id=i_id)
+
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cartItems = order['get_cart_items']
@@ -317,7 +319,7 @@ def mymodule(request,i_id):
         'items': items,
                'order': order,
                'cartItems': cartItems,
-               'i':files
+               'detail':course,
                }
     return render(request,'materials/module.html',context)
 

@@ -20,7 +20,7 @@ urlpatterns = [
     path('mylearning/',views.mylearning),
     # path('module/', views.mymodule),
 
-    path('module/<int:i_id>/', views.mymodule),
+    path('module/<int:file_orderid>', views.mymodule),
 
     path('quiz/', views.myquiz),
     path('week1/', views.myweek),

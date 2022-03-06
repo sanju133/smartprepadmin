@@ -115,21 +115,23 @@ display:-webkit-box;
 
     <div class="body13">
         <div class="container13">
-             {% for i in detail %}
+             {% for file in detail %}
          <div class="card1">
         <div class="card-header1">
-        <img src="/{{i.image}}" alt="rover" />
+        <img src="/{{file.image}}" alt="rover" />
         </div>
         <div class="card-body1">
 
-            <h3 style="font-weight:700;">{{i.name}}</h3>
+            <h3 style="font-weight:700;">{{file.name}}</h3>
             <div class='content-detail' >
-                <p class='content-p'>{{i.description}}</p>
+                <p class='content-p'>{{file.description}}</p>
 
             </div>
 
 
-        <a  style="margin:0px; background:#30649C; color:white; width:100%; font-size:15px;" class="btn" href="/materials/module/{{i.id}}/">Go to Module</a>
+
+
+        <a  style="margin:0px; background:#30649C; color:white; width:100%; font-size:15px;" class="btn" href="/materials/module/{{file.orderid}}">Go to Module</a>
 
 
     </div>
