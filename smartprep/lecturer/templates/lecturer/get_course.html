@@ -52,7 +52,7 @@ color:white;
                     </tr>
                     {% for i in course %}
                     <tr class="store2" >
-                        <td><img class="row-image" src="/{{i.course_Image}}"> </td>
+                        <td><a href="/lecturer/details/{{i.id}}"><img class="row-image" src="/{{i.course_Image}}"> </a></td>
 
                         <td class="text-uppercase"><a href="/lecturer/get_particular_lecture/{{i.id}}">{{ i.course_Name }} </a></td>
                         <td> {{ i.category_Courses }}</td>

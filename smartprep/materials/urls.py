@@ -4,10 +4,10 @@ from materials import views
 urlpatterns = [
 
    # path('home', views.content2),
-    path('home/', views.home),
-    path('courses/', views.course),
+    path('home/', views.home, name="homepage"),
+    path('courses/', views.course, name="course"),
     path('get_course_category/<int:categories_id>', views.get_course_category),
-    path('cart/',views.cart),
+    path('cart/',views.cart, name='cart'),
     path('checkout/',views.checkout),
     path('update_item/',views.updateItem),
 

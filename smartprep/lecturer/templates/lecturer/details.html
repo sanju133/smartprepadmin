@@ -1,0 +1,323 @@
+<style>
+
+.week1 p{
+
+}
+.coursedetail{
+margin-top:7%;
+}
+.postb{
+
+
+    width: 155px;
+    height: 43px;
+    background-color: #30649C;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+}
+		.main{
+
+			margin: 90px;
+			display: flex;
+			justify-content: space-evenly;
+		}
+		.head h2{
+			font-size: 32px;
+			margin: 0px 16px 0px 0px;
+			letter-spacing: 1px;
+			font-family: OpenSans,Arial,sans-serif;
+
+		}
+
+		.mainbody{
+			margin: 40px;
+			padding-left: 50px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+		}
+		.side {
+			flex: 30%;
+			padding: 20px;
+			}
+
+		/* Main column */
+		.body {
+			flex: 70%;
+			color: #1f1f1f;
+			background-color: white;
+			padding: 20px;
+		}
+
+		.body h4{
+			font-size: 24px;
+		}
+		.body p{
+			font-size: 14px;
+		}
+
+		.certificate h1{
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+			padding: 10px;
+			font-weight: bold;
+			font-family: OpenSans-Bold, OpenSans, Arial, sans-serif;
+		}
+		.certificate p{
+			font-size: 14px;
+			margin-left: 30px;
+			color:  #6e767f;
+		}
+
+		.learning1 h1{
+			font-size: 2.125rem;
+			line-height: 2.625rem;
+			font-weight: normal;
+			font-family: OpenSans-Light, OpenSans, Arial, sans-serif;
+			text-align: center;
+			margin: 50px;
+			color:#30649C;
+
+		}
+		.learning1 .syallbus .week1{
+			display: none;
+		}
+		.syallbus{
+
+			margin: 60px;
+			padding-left: 30px;
+			display: flex;
+			justify-content: space-evenly;
+		}
+		.week1 {
+			color: #1f1f1f;
+			background-color: white;
+			padding: 20px;
+		}
+
+
+		.week1 #week{
+			font-size: 16px;
+			font-weight: bold;
+			letter-spacing: 4px;
+			color: #6e767f;
+;
+		}
+		.week1 #number{
+			font-size: 60px;
+			margin-left: 65px;
+			color: #6e767f;
+
+		}
+
+
+		.ratingreview{
+			background-color: #f8fcf8;
+			margin: 60px;
+			padding-left: 30px;
+		}
+		.ratingnumber{
+			margin-left: 8%;
+
+		}
+		.ratingreview .ratebox .reviews{
+			display: none;
+		}
+		.ratebox{
+			margin-left:5%
+		}
+		.reviews{
+			flex: 50%;
+			color: #1f1f1f;
+			background-color: ;
+			padding: 20px;
+
+		}
+
+		.professor{
+			display: flex;
+			padding:20px;
+			margin-left:80px;
+		}
+		.avatar {
+			vertical-align: middle;
+			width: 90px;
+			height: 90px;
+			border-radius: 50%;
+			}
+
+
+		.btn1 {
+			padding: .7rem 2rem;
+			background: royalblue;
+			border: none;
+			color: #FFF;
+			margin: 20px auto;
+			display: block;
+			font-size: 1.3rem;
+			cursor: pointer;
+			outline: none;
+			transition: .3s;
+		}
+
+		.btn1:hover {
+			opacity: .8;
+		}
+		.btn2 {
+			padding: .7rem 2rem;
+			background: royalblue;
+			border: none;
+			color: #FFF;
+			margin: 20px auto;
+			display: block;
+			font-size: 1.3rem;
+			cursor: pointer;
+			outline: none;
+			transition: .3s;
+		}
+		.image {
+		height:300px;
+
+		}
+
+		.btn2:hover {
+			opacity: .8;
+		}
+	</style>
+
+{% extends 'admin-layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>details</title>
+{% endblock title %}
+
+{% block main_content %}
+<div class="coursedetail">
+		<div class="main">
+			<div class="head">
+
+				<h1>{{i.course_Name}}</h1><br>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star checked"></span>
+					<span class="fa fa-star"></span>  &nbsp;4.9 &nbsp; 76,209 ratings . {{comments.count}} Comments{{comments|pluralize}}
+
+					<style type="text/css">
+						.checked {
+								color: orange;
+						}
+
+					</style>
+					<br>
+					<br>
+			</div>
+			<div class="head">
+				<a href="#!">
+					<img class="card-img-top image" style="margin-left:10%" src="/{{i.course_Image}}" alt="..." /></a>
+
+			</div>
+		</div>
+
+		<hr>
+
+<div class="mainbody">
+			<div class="body">
+				<h4>About this course</h4>
+				<p style="font-size:17px;">{{i.course_Description}}</p>
+
+			</div>
+
+
+		</div>
+
+
+
+		<!-- Review Section -->
+		<div class="">
+			<div class="ratebox">
+				<div class="reviews">
+					<form method="POST">
+						{% csrf_token %}
+						<h2 style="color:#30649C">Feedback</h2><br>
+						<label for="id_content"></label>
+						<textarea name="content" cols="160" rows="5" maxlength="250" placeholder="Add feedback" required="" id="id_content">dd</textarea><br><br>
+						{% if request.user.is_authenticated %}
+						<input type="submit" value="POST" class="POSTb">
+						{% else %}
+						<input type="submit" value="POST" class="POSTb" disabled>
+						{% endif %}
+
+					</form>
+					<div class="review-form">
+						{{comments.count}} Comments{{comments|pluralize}}
+						{% for comment in comments %}
+						<br><hr>
+						<h5>{{comment.user.first_name}} {{comment.user.last_name}} </h5>
+
+
+  							<blockquote class="blockquote">
+								<p style="font-size:15px" class="mb-0">{{comment.content}}</p>
+
+
+	    					</blockquote>
+						{% endfor %}
+					</div>
+
+				</div>
+
+			</div>
+
+
+			<h1 style="font-size: 24px; margin-left: 8%;">Instructor</h1>
+			<div class="professor">
+
+
+				<div class="profdetail">
+
+					<p>  <i> {{course.user}}</i>
+					</p>
+
+				</div>
+			</div>
+
+			</div>
+
+
+					<!-- Professsor Detail -->
+		</div>
+
+
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(".week1").slice(0, 2).show()
+        $(".btn1").on("click", function(){
+			$(".week1:hidden").slice(0,2).slideDown()
+           if ($(".week1:hidden").length == 0) {
+                 $(".btn1").fadeOut('slow')
+		   }
+
+        })
+
+
+        $(".reviews").slice(0, 2).show()
+        $(".btn2").on("click", function(){
+			$(".reviews:hidden").slice(0, 2).slideDown()
+           if ($(".reviews:hidden").length == 0) {
+                 $(".btn2").fadeOut('slow')
+		   }
+
+        })
+    </script>
+
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+{% endblock main_content %}

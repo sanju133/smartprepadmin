@@ -7,8 +7,8 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from materials.forms import  CoursesForm, LecturesForm
-from materials.models import Courses, Lectures, Categories
+from materials.forms import CoursesForm, LecturesForm, CommentForm
+from materials.models import Courses, Lectures, Categories, Order, Comments
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from accounts.models import *
 from django.contrib.auth.decorators import login_required
@@ -186,3 +186,43 @@ def password_change(request):
         'activate_password': 'active',
     }
     return render(request,'lecturer/password_change.html',context)
+
+
+def details(request,i_id):
+    courseDetail = Courses.objects.get(id=i_id)
+    comments = Comments.objects.filter(course_id=i_id)
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            content = request.POST.get('content')
+            comment = Comments.objects.create(course_id=i_id, user=request.user, content=content)
+            comment.save()
+
+    else:
+        comment_form = CommentForm()
+
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0,'shipping': False}
+        cartItems = order['get_cart_items']
+    files=Courses.objects.get(id=i_id)
+
+    context={
+        'i':files,
+        'activate_courses': 'active',
+        'cartItems': cartItems,
+        'items': items,
+        'order': order,
+        'course': courseDetail,
+        'comments': comments,
+        'comment_form': comment_form
+    }
+    return render(request, 'lecturer/details.html', context)
+
+

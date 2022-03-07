@@ -21,5 +21,7 @@ urlpatterns = [
     path('delete_lecture/<int:lectures_id>', views.delete_lecture),
     path('password_change/', views.password_change),
 
+    path('details/<int:i_id>/', views.details),
+
 ]
 
