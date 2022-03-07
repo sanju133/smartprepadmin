@@ -23,7 +23,7 @@ urlpatterns = [
     path('module/<int:file_orderid>', views.mymodule),
 
     path('quiz/', views.myquiz),
-    path('lecture/<int:lectures_id>', views.myweek),
+    path('lecture/<int:file_id>', views.week1),
     # path('content/', views.content2)
 
 ]

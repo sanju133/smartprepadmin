@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 import os
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 # Create your views here.
 from accounts.auth import admin_only
@@ -283,3 +285,26 @@ def get_particular_course(request, categories_id):
         'categories':categories
     }
     return render(request, 'admins/get_particular_course.html', context)
+
+@login_required
+def password_change(request):
+    if request.method=='POST':
+        # new_password1 = request.POST.get('new_password1')
+        # new_password2 = request.POST.get('new_password2')
+        form=PasswordChangeForm(request.user,request.POST)
+        if form.is_valid():
+            user=form.save()
+            update_session_auth_hash(request,user)
+            messages.add_message(request,messages.SUCCESS,"Password changed successfully!")
+            return redirect('/password_change/')
+        else:
+            # if User.objects.filter(new_password1=new_password1).exists():
+            #     messages.add_message(request, messages.ERROR,'username already exists')
+            #     return redirect('/RegisterForm/')
+            messages.add_message(request,messages.ERROR, "Something went wrong!")
+            return render(request,'accounts/password_change.html', {'password_change_form':form})
+    context={
+        'password_change_form':PasswordChangeForm(request.user),
+        'activate_password': 'active',
+    }
+    return render(request,'accounts/password_change.html',context)

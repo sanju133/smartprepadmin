@@ -261,7 +261,7 @@ font-family: 'Oswald', sans-serif !important;
 .categorytext p {
     margin-top:10%;
 	color: #222;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 300;
 	line-height: 170%;
 	letter-spacing: 1.5px;
@@ -624,17 +624,25 @@ margin-top:5%;
     <span class="section-separator"></span>
 
     <div class="container">
+
         <div class="row">
+               {% for i in category_material %}
             <div class="col-md-4">
                 <div class="category_main">
                     <div class="category_service">
+
                         <div class="category_logo">
-                            <img src="{% static 'images/engineer.jpg' %}" alt="">
+                            <img src="/{{i.category_Image}}" alt="">
 
                         </div>
                         <div class="categorytext">
-                            <h4>Web development</h4>
-                        <p>Lorem ipsumex necessitatibus error ducimus, ullam sit?error ducimus, ullam sit?,</p>
+                            <h4>{{i.category_Name}}</h4>
+                        <p   style=" overflow:hidden;
+                        display:-webkit-box;
+                        -webkit-box-orient:vertical;
+                        -webkit-line-clamp:2; text-align: justify; color:black">{{i.category_Description}}
+
+                        </p>
 
 
                         </div>
@@ -646,51 +654,7 @@ margin-top:5%;
                 </div>
 
             </div>
-
-
-
-            <div class="col-md-4">
-                <div class="category_main">
-                    <div class="category_service">
-                        <div class="category_logo">
-                            <img src="{% static 'images/codingimage.jpg' %}" alt="">
-
-                        </div>
-                        <div class="categorytext">
-                            <h4>Web development</h4>
-                        <p>Lorem ipsumex necessitatibus error ducimus, ullam sit?error ducimus, ullam sit?,</p>
-
-
-                        </div>
-                    </div>
-                    <div class="shadowOne"></div>
-                    <div class="shadowTwo"></div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-4">
-                <div class="category_main">
-                    <div class="category_service">
-                        <div class="category_logo">
-                            <img src="{% static 'images/medical1.jpg' %}" alt="">
-
-                        </div>
-                       <div class="categorytext">
-                            <h4>Web development</h4>
-                        <p>Lorem ipsumex necessitatibus error ducimus, ullam sit?error ducimus, ullam sit?,</p>
-
-
-                        </div>
-                    </div>
-                    <div class="shadowOne"></div>
-                    <div class="shadowTwo"></div>
-
-                </div>
-
-            </div>
-
+               {% endfor %}
 
 
         </div>
@@ -852,10 +816,15 @@ margin-top:5%;
             <div class="slide-row" id="slide">
                 <div class="slide-col">
                     <div class="teacher-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, inventore consequatur delectus
-                            ad aut a harum rem optio doloremque quod, necessitatibus unde ratione eum numquam
-                            architecto, ducimus dignissimos modi. Praesentium!</p>
-                        <h3>Manisha</h3>
+                        <p>   Avinash Jain is currently a sophomore at UC Berkeley majoring in Electrical
+                            Engineering and Computer Science. He's the CEO and Founder of TheCodex, an online educational
+                            platform focused
+                            programming content to hundreds of thousands student.
+
+
+
+                            </p>
+                        <h3>Avinash Rai</h3>
                         <p>Science</p>
                     </div>
                     <div class="teacher-img">

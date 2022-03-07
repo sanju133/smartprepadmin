@@ -91,8 +91,8 @@ class Lectures(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     lecture_Name=models.CharField(max_length=100, null=True)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True)
-    lecture_content= RichTextField(validators=[MinLengthValidator(9), MaxLengthValidator(3000)],
-                                            null=True, max_length=1000)
+    lecture_content= RichTextField(validators=[MinLengthValidator(9), MaxLengthValidator(15000)],
+                                            null=True, max_length=15000)
     def __str__(self):
         return self.lecture_Name
 

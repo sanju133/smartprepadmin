@@ -10,9 +10,10 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404, JsonResponse
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from .models import Profiles
-from materials.models import Order, Courses
+from materials.models import Order, Courses, Categories
 from .forms import ProfileForm, ContactForm
 from .models import *
+
 
 from .forms import CreateUserForm, LoginForm
 from accounts.auth import unauthenticated_user
@@ -25,7 +26,10 @@ def card(request):
 
 
 def homepage(request):
-    courses = Courses.objects.order_by('-id').all()[:4]
+    courses = Courses.objects.order_by('-id').all()[:6]
+    category = Categories.objects.all().order_by('-id').all()[:3]
+
+
 
     if request.user.is_authenticated:
         customer = request.user
@@ -42,6 +46,7 @@ def homepage(request):
         'items': items,
         'order': order,
         'courses': courses,
+        'category_material': category,
 
         }
     return render(request, 'accounts/homepage.html',context)
@@ -290,6 +295,15 @@ def profile(request):
 # function for changing password
 @login_required
 def password_change(request):
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        cartItems = order['get_cart_items']
     if request.method=='POST':
         # new_password1 = request.POST.get('new_password1')
         # new_password2 = request.POST.get('new_password2')
@@ -305,7 +319,11 @@ def password_change(request):
             #     return redirect('/RegisterForm/')
             messages.add_message(request,messages.ERROR, "Something went wrong!")
             return render(request,'accounts/password_change.html', {'password_change_form':form})
+
     context={
         'password_change_form':PasswordChangeForm(request.user),
+        'items': items,
+        'order': order,
+        'cartItems': cartItems,
     }
     return render(request,'accounts/password_change.html',context)

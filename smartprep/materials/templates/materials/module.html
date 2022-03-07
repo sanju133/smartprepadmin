@@ -1,10 +1,10 @@
 <style>
 
-.content-image {
-        background-image:
-        linear-gradient(to bottom,  #0078ff , rgba(39, 4, 138, 0.73)),url(images/header.png);
-        height: 400px;
-      }
+<!--.content-image {-->
+<!--        background-image:-->
+<!--        linear-gradient(to bottom,  #0078ff , rgba(39, 4, 138, 0.73)),url(images/mymodule.png);-->
+<!--        height: 400px;-->
+<!--      }-->
 
 
       .maincard{
@@ -356,7 +356,9 @@
 {% endblock title %}
 {% block main_content %}
 
-<div class="content-image" >
+<div class="content-image"  style="background-image:
+        linear-gradient(to bottom,  #0078ff , rgba(39, 4, 138, 0.73)),url({% static 'images/mymodule.png' %});
+        height: 400px;">
 
 </div>
 
@@ -416,9 +418,13 @@
 
       <div class="content">
         <div class="radio_content radio_1">
+          {% for file in course %}
           <div class="overview1 mt-3">
             <h1>Module Overview</h1>
-            <p>{{detail.product.course_Description}}</p>
+
+
+            <p>{{file.course_Description}}</p>
+            {% endfor %}
           </div>
 
           <div class="overview2 mt-3">
@@ -435,12 +441,13 @@
             <h1 style="font-size: 26px; font-weight: bold;">{{detail.product.course_Name}}</h1>
 
 
-            {% for i in detail.product.lectures_set.all %}
+            {% for file in lecture %}
 
             <div class="res-week">
-              <h4 style="border:none;"><a href="/materials/lecture/{{i.id}}">
-                  <button>{{i.lecture_Name}}</button>
+              <h4 style="border:none;"><a href="/materials/lecture/{{file.id}}">
+                  <button>{{file.lectureName}}</button>
                 </a></h4>
+              <hr>
             </div>
             {% endfor %}
 

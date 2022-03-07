@@ -303,7 +303,7 @@ def mylearning(request):
 
 
 def mymodule(request,file_orderid):
-    course = OrderItem.objects.get(id=file_orderid)
+    course = Order.objects.get(id=file_orderid)
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -355,3 +355,79 @@ def myweek(request, lectures_id):
                'lecture':lecture,
                'cartItems': cartItems}
     return render(request,'materials/week1.html',context)
+
+
+
+def mymodule(request,file_orderid):
+    order_id =file_orderid
+    cursor=connection.cursor()
+    cursor.execute("""SELECT cs.id,cs.course_Name,cs.course_Description FROM `materials_orderitem` oi 
+    inner join materials_courses cs on oi.product_id=cs.id
+    WHERE oi.order_id=%s limit 1""",(order_id,))
+    details=cursor.fetchall()
+    result=[]
+    for detail in details:
+        keys=('id','course_Name','course_Description')
+        result.append(dict(zip(keys,detail)))
+
+    cursor.execute("""
+    select * from materials_lectures ml where  ml.course_id=%s""", (details[0][0],))
+    details = cursor.fetchall()
+    result1 = []
+    for detail in details:
+        keys = ('id', 'lectureName', 'lectureContent')
+        result1.append(dict(zip(keys, detail)))
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        cartItems = order['get_cart_items']
+    context={
+        "course":result,
+        'lecture':result1,
+        'items': items,
+        'order': order,
+        'cartItems': cartItems,
+    }
+    return render(request, 'materials/module.html', context)
+
+def week1(request,file_id):
+    order_id =file_id
+    cursor=connection.cursor()
+    cursor.execute("""SELECT cs.id,cs.course_Name,cs.course_Description FROM `materials_orderitem` oi 
+    inner join materials_courses cs on oi.product_id=cs.id
+    WHERE oi.order_id=%s limit 1""",(order_id,))
+    details=cursor.fetchall()
+    result=[]
+    for detail in details:
+        keys=('id','course_Name','course_Description')
+        result.append(dict(zip(keys,detail)))
+
+    cursor.execute("""
+    select * from materials_lectures ml where  ml.id=%s""", (order_id,))
+    details = cursor.fetchall()
+    result1 = []
+    for detail in details:
+        keys = ('id', 'lectureName', 'lectureContent')
+        result1.append(dict(zip(keys, detail)))
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        cartItems = order['get_cart_items']
+    context={
+        "course":result,
+        'lecture':result1,
+        'items': items,
+        'order': order,
+        'cartItems': cartItems,
+    }
+    return render(request, 'materials/week1.html', context)

@@ -28,6 +28,6 @@ path('orderhistory/',views.order),
     path('demote_user/<int:user_id>', views.demote_user),
 
     path('get_particular_courses/<int:categories_id>', views.get_particular_course),
-
+    path('password_change/', views.password_change),
 
 ]
